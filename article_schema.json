@@ -291,7 +291,7 @@
     },
     "fulltext_url": {
       "title": "URL zum Volltext",
-      "type": "string",
+      "type": "string"
     },
     "abstracts": {
       "title": "Abstracts, Zusammenfassungen usw.",

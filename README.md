@@ -1,34 +1,37 @@
 
-# GBV Simple Article Schema Schema
+# Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG Schema
 
 ```
 https://uri.gbv.de/schema/article/01/schema#
 ```
 
+Vorbemerkungen....
 
 | Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|--------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [article_schema_fixed_arrays.schema.json](article_schema_fixed_arrays.schema.json) |
+| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [article_schema.json](article_schema.json) |
 
-# GBV Simple Article Schema Properties
+# Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [abstracts](#abstracts) | `object[]` | Optional | GBV Simple Article Schema (this schema) |
-| [copyright](#copyright) | `string` | Optional | GBV Simple Article Schema (this schema) |
-| [fulltext_url](#fulltext_url) | `string` | Optional | GBV Simple Article Schema (this schema) |
-| [journal](#journal) | `object` | **Required** | GBV Simple Article Schema (this schema) |
-| [lang_code](#lang_code) | `string` | **Required** | GBV Simple Article Schema (this schema) |
-| [other](#other) | `object` | Optional | GBV Simple Article Schema (this schema) |
-| [other_ids](#other_ids) | `object[]` | Optional | GBV Simple Article Schema (this schema) |
-| [persons](#persons) | `object[]` | Optional | GBV Simple Article Schema (this schema) |
-| [primary_id](#primary_id) | `string` | **Required** | GBV Simple Article Schema (this schema) |
-| [subject_terms](#subject_terms) | `object[]` | Optional | GBV Simple Article Schema (this schema) |
-| [title](#title) | `string` | **Required** | GBV Simple Article Schema (this schema) |
+| [abstracts](#abstracts) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [copyright](#copyright) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [fulltext_url](#fulltext_url) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [journal](#journal) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [lang_code](#lang_code) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [other](#other) | `object` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [other_ids](#other_ids) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [persons](#persons) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [primary_id](#primary_id) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [subject_terms](#subject_terms) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [title](#title) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
 ## abstracts
+### Abstracts, Zusammenfassungen usw.
 
+Mit Angabe der Sprache als Sprachcode aus ISO 639-2
 
 `abstracts`
 
@@ -68,6 +71,13 @@ undefined
 
 
 
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5Ba-z%5D%7B3%7D%24)):
+```regex
+^[a-z]{3}$
+```
+
+
 
 
 
@@ -103,7 +113,7 @@ undefined
 
 
 ## copyright
-
+### Copyrightvermerk
 
 `copyright`
 
@@ -123,7 +133,7 @@ undefined
 
 
 ## fulltext_url
-
+### URL zum Volltext
 
 `fulltext_url`
 
@@ -163,22 +173,23 @@ Quellenangabe
 |----------|------|----------|
 | `coden`| string | Optional |
 | `day`| string | Optional |
-| `end_page`| string | Optional |
+| `end_page`| string | **Required** |
 | `issue`| string | Optional |
-| `journal_ids`|  | Optional |
+| `journal_ids`| array | Optional |
 | `month`| string | Optional |
 | `place`| string | Optional |
 | `publisher`| object | Optional |
-| `start_page`| string | Optional |
-| `title`| string | Optional |
+| `start_page`| string | **Required** |
+| `title`| string | **Required** |
 | `volume`| string | Optional |
-| `year`| string | Optional |
+| `year`| string | **Required** |
 
 
 
 #### coden
 ##### Coden
 
+Hmmm, ist das nicht eine ID?
 
 `coden`
 
@@ -199,8 +210,9 @@ Quellenangabe
 
 
 #### day
+##### Tag
 
-undefined
+Tag des Erscheinens als zweistellige Zahl
 
 `day`
 
@@ -214,6 +226,13 @@ undefined
 
 
 
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B2%7D%24)):
+```regex
+^[0-9]{2}$
+```
+
+
 
 
 
@@ -221,12 +240,13 @@ undefined
 
 
 #### end_page
+##### Endseite
 
 undefined
 
 `end_page`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### end_page Type
@@ -243,6 +263,7 @@ undefined
 
 
 #### issue
+##### Ausgabe
 
 undefined
 
@@ -265,22 +286,87 @@ undefined
 
 
 #### journal_ids
+##### IDs der Zeitschrift
 
-undefined
+Identifier der Zeitschrift, z.B. E-ISSN, P-ISSN, ZDB-ID, publisher -ID usw.
 
 `journal_ids`
 
 * is optional
-* type: complex
+* type: `object[]`
+
 
 ##### journal_ids Type
 
-Unknown type ``.
+
+Array type: `object[]`
+
+All items must be of the type:
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `id`| string | Optional |
+| `type`| string | Optional |
+
+
+
+#### id
+##### ID
+
+Wert der ID
+
+`id`
+
+* is optional
+* type: `string`
+
+##### id Type
+
+
+`string`
+
+
+
+
+
+
+
+
+
+#### type
+##### Typ
+
+Typ der ID, z.B. eissn, pissn, zdbid, springerid usw.
+
+`type`
+
+* is optional
+* type: `string`
+
+##### type Type
+
+
+`string`
+
+
+
+
+
+
+##### type Examples
 
 ```json
-{
-  "simpletype": "complex"
-}
+eissn
+```
+
+```json
+pissn
+```
+
+```json
+zdbid
 ```
 
 
@@ -289,9 +375,15 @@ Unknown type ``.
 
 
 
-#### month
 
-undefined
+
+
+
+
+#### month
+##### Monat
+
+Monat des Erscheinens als zweistellige Zahl
 
 `month`
 
@@ -305,6 +397,13 @@ undefined
 
 
 
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B2%7D%24)):
+```regex
+^[0-9]{2}$
+```
+
+
 
 
 
@@ -312,6 +411,7 @@ undefined
 
 
 #### place
+##### Erscheinungsort
 
 undefined
 
@@ -334,8 +434,9 @@ undefined
 
 
 #### publisher
+##### Verlag
 
-undefined
+Angaben zum Verlag, falls bekannt mit einem Identifier des Verlages (z.B. GND)
 
 `publisher`
 
@@ -349,6 +450,39 @@ Unknown type `object`.
 ```json
 {
   "type": "object",
+  "title": "Verlag",
+  "description": "Angaben zum Verlag, falls bekannt mit einem Identifier des Verlages (z.B. GND)",
+  "properties": {
+    "name": {
+      "title": "Name des Verlages",
+      "type": "string"
+    },
+    "publisher_ids": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "title": "ID",
+            "description": "Wert der ID",
+            "type": "string"
+          },
+          "type": {
+            "title": "Typ",
+            "description": "Typ der ID, z.B. gnd",
+            "type": "string",
+            "examples": [
+              "gnd"
+            ]
+          }
+        }
+      }
+    }
+  },
   "simpletype": "`object`"
 }
 ```
@@ -360,12 +494,13 @@ Unknown type `object`.
 
 
 #### start_page
+##### Anfangsseite
 
 undefined
 
 `start_page`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### start_page Type
@@ -388,7 +523,7 @@ Titel der Zeitschrift
 
 `title`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### title Type
@@ -405,6 +540,7 @@ Titel der Zeitschrift
 
 
 #### volume
+##### Band
 
 undefined
 
@@ -427,12 +563,13 @@ undefined
 
 
 #### year
+##### Erscheinungsjahr
 
-undefined
+Erscheinungsjahr als vierstellige Zahl
 
 `year`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### year Type
@@ -440,6 +577,13 @@ undefined
 
 `string`
 
+
+
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B4%7D%24)):
+```regex
+^[0-9]{4}$
+```
 
 
 
@@ -452,7 +596,9 @@ undefined
 
 
 ## lang_code
+### Sprache
 
+Sprache des Artikels als Sprachcode nach ISO 639-2
 
 `lang_code`
 
@@ -467,14 +613,21 @@ undefined
 
 
 
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5Ba-z%5D%7B3%7D%24)):
+```regex
+^[a-z]{3}$
+```
+
+
 
 
 
 
 ## other
-### Anything else?
+### Sonst noch was?
 
-You may put one JSON object into the 'other' key for submitting additional data, that doesn't fit into the defined keys. You must put this data into a self-designed JSON object and you must provide a JSON schema for this JSON object. You should also provide a mapping of this JSON object to PICA fields.
+In den key 'other' kann ein JSON-Objekt mit weiteren Daten geschrieben werden. Dieses Objekt muss mit einem JSON-Schema spezifiziert sein und es sollte ein Mapping des Objekts auf Picaplus-Felder mitgeliefert werden.
 
 `other`
 
@@ -596,7 +749,7 @@ oai_id
 ## persons
 ### Personen
 
-alle am Artikel beteiligten Personen
+alle am Artikel beteiligten Personen in der Reihenfolge der Nennung im Artikel
 
 `persons`
 
@@ -646,7 +799,7 @@ Unknown type `object`.
   "properties": {
     "name": {
       "type": "string",
-      "title": "Name der Einrichrung",
+      "title": "Name der Einrichtung",
       "description": "Name der Einrichtung"
     },
     "affiliation_ids": {
@@ -758,7 +911,7 @@ Nachname
 
 
 #### person-ids
-##### ID der Person
+##### IDs der Person
 
 Identifier, die die Person identifizieren (z.B. GND, ORCID, ...)
 
@@ -851,7 +1004,7 @@ gnd
 #### role
 ##### role
 
-Roller der Person in Bezug auf den Artikel als relator code nach https://www.gbv.de/bibliotheken/verbundbibliotheken/02Verbund/01Erschliessung/02Richtlinien/02KatRichtRDA/anhaenge/anhang-beziehungskennzeichen
+Rolle der Person in Bezug auf den Artikel als relator code nach https://www.gbv.de/bibliotheken/verbundbibliotheken/02Verbund/01Erschliessung/02Richtlinien/02KatRichtRDA/anhaenge/anhang-beziehungskennzeichen
 
 `role`
 
@@ -914,7 +1067,9 @@ primäre ID des Datensatzes in der Datenquelle
 
 
 ## subject_terms
+### Sacherschließung
 
+Mit Angabe des Sacherschließungssystems und der Sprache als Sprachcode aus ISO 639-2
 
 `subject_terms`
 
@@ -934,8 +1089,8 @@ All items must be of the type:
 | Property | Type | Required |
 |----------|------|----------|
 | `lang_code`| string | Optional |
-| `scheme`| string | Optional |
-| `terms`| array | Optional |
+| `scheme`| string | **Required** |
+| `terms`| array | **Required** |
 
 
 
@@ -962,12 +1117,13 @@ undefined
 
 
 #### scheme
+##### Sacherschließungssystem
 
-undefined
+Bezeichnung des Sacherschließungssystems
 
 `scheme`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### scheme Type
@@ -984,12 +1140,13 @@ undefined
 
 
 #### terms
+##### Sacherschließungsterme
 
 undefined
 
 `terms`
 
-* is optional
+* is **required**
 * type: `string[]`
 
 
