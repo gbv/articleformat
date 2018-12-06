@@ -1,0 +1,335 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://uri.gbv.de/schema/article/01/schema#",
+  "type": "object",
+  "title": "Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG",
+  "description": "Vorbemerkungen....",
+  "required": [
+    "primary_id",
+    "title",
+    "lang_code",
+    "journal"
+  ],
+  "properties": {
+    "primary_id": {
+      "type": "string",
+      "title": "Primäre ID",
+      "description": "primäre ID des Datensatzes in der Datenquelle"
+    },
+    "other_ids": {
+      "type": "array",
+      "title": "weitere IDs",
+      "description": "Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (Frage: brauchen wir getrennte keys für andere IDs, die den Datensatz identifizieren, und IDs, die den Artikel identifizieren?)",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "title": "ID",
+            "description": "Wert der ID",
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "title": "Typ",
+            "description": "Typ der ID",
+            "examples": [
+              "doi",
+              "oclc",
+              "urn",
+              "oai_id"
+            ]
+          }
+        }
+      }
+    },
+    "title": {
+      "type": "string",
+      "title": "Titel",
+      "description": "Der vollständige Titel des Artikels"
+    },
+    "persons": {
+      "type": "array",
+      "title": "Personen",
+      "description": "alle am Artikel beteiligten Personen in der Reihenfolge der Nennung im Artikel",
+      "items": {
+        "type": "object",
+        "required": [
+          "fullname"
+        ],
+        "properties": {
+          "fullname": {
+            "type": "string",
+            "title": "Voller Name",
+            "description": "persönlicher Name, dieser wird auch verwendet, wenn eine Aufteilung in Nachname, Vorname nicht möglich ist. Verfassende Organisationen (Körperschaften) können bei Aufsätzen auch als „persönlicher Name“ angegeben werden"
+          },
+          "firstname": {
+            "type": "string",
+            "title": "Vorname",
+            "description": "Vorname"
+          },
+          "lastname": {
+            "type": "string",
+            "title": "Nachname",
+            "description": "Nachname"
+          },
+          "role": {
+            "type": "string",
+            "title": "role",
+            "description": "Roller der Person in Bezug auf den Artikel als relator code nach https://www.gbv.de/bibliotheken/verbundbibliotheken/02Verbund/01Erschliessung/02Richtlinien/02KatRichtRDA/anhaenge/anhang-beziehungskennzeichen",
+            "examples": [
+              "aut",
+              "edt",
+              "ill"
+            ]
+          },
+          "affiliation": {
+            "type": "object",
+            "title": "Zugehörigkeit",
+            "description": "Zugehörigkeit einer Person zu einer Einrichtung (z.B. Universität, Firma, Forschungseinrichtung usw.)",
+            "properties": {
+              "name": {
+                "type": "string",
+                "title": "Name der Einrichrung",
+                "description": "Name der Einrichtung"
+              },
+              "affiliation_ids": {
+                "type": "array",
+                "title": "Identifier der Einrichtung",
+                "description": "Identifier, die die Einrichtung identifizieren",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "type"
+                  ],
+                  "properties": {
+                    "id": {
+                      "title": "ID",
+                      "description": "Wert der ID",
+                      "type": "string"
+                    },
+                    "type": {
+                      "title": "type",
+                      "description": "Typ der ID (z.B. gnd, viaf, ???)",
+                      "type": "string",
+                      "examples": [
+                        "gnd",
+                        "viaf"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "person-ids": {
+            "type": "array",
+            "title": "IDs der Person",
+            "description": "Identifier, die die Person identifizieren (z.B. GND, ORCID, ...)",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "type"
+              ],
+              "properties": {
+                "id": {
+                  "title": "ID",
+                  "description": "Wert der ID",
+                  "type": "string"
+                },
+                "type": {
+                  "title": "Typ",
+                  "description": "Typ der ID (z.B. gnd, orcid, viaf, ...)",
+                  "type": "string",
+                  "examples": [
+                    "orcid",
+                    "gnd"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "journal": {
+      "type": "object",
+      "title": "Zeitschrift",
+      "description": "Quellenangabe",
+      "properties": {
+        "title": {
+          "title": "Titel",
+          "description": "Titel der Zeitschrift",
+          "type": "string"
+        },
+        "coden": {
+          "title": "Coden",
+          "description": "Hmmm, ist das nicht eine ID?",
+          "type": "string"
+        },
+        "journal_ids": {
+          "title": "IDs der Zeitschrift",
+          "description": "Identifier der Zeitschrift, z.B. E-ISSN, P-ISSN, ZDB-ID, publisher -ID usw.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "title": "ID",
+                "description": "Wert der ID",
+                "type": "string"
+              },
+              "type": {
+                "title": "Typ",
+                "description": "Typ der ID, z.B. eissn, pissn, zdbid, springerid usw.",
+                "type": "string",
+                "examples": [
+                  "eissn",
+                  "pissn",
+                  "zdbid"
+                ]
+              }
+            }
+          }
+        },
+        "year": {
+          "title": "Erscheinungsjahr",
+          "description": "Erscheinungsjahr als vierstellige Zahl",
+          "type": "string",
+          "pattern": "^[0-9]{4}$"
+        },
+        "month": {
+          "title": "Monat",
+          "description": "Monat des Erscheinens als zweistellige Zahl",
+          "type": "string",
+          "pattern": "^[0-9]{2}$"
+        },
+        "day": {
+          "title": "Tag",
+          "description": "Tag des Erscheinens als zweistellige Zahl",
+          "type": "string",
+          "pattern": "^[0-9]{2}$"
+        },
+        "volume": {
+          "title": "Band",
+          "type": "string"
+        },
+        "issue": {
+          "title": "Ausgabe",
+          "type": "string"
+        },
+        "publisher": {
+          "type": "object",
+          "title": "Verlag",
+          "description": "Angaben zum Verlag, falls bekannt mit einem Identifier des Verlages (z.B. GND)",
+          "properties": {
+            "name": {
+              "title": "Name des Verlages",
+              "type": "string"
+            },
+            "publisher_ids": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "title": "ID",
+                    "description": "Wert der ID",
+                    "type": "string"
+                  },
+                  "type": {
+                    "title": "Typ",
+                    "description": "Typ der ID, z.B. gnd",
+                    "type": "string",
+                    "examples": [
+                      "gnd"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "place": {
+          "title": "Erscheinungsort",
+          "type": "string"
+        },
+        "start_page": {
+          "title": "Anfangsseite",
+          "type": "string"
+        },
+        "end_page": {
+          "title": "Endseite",
+          "type": "string"
+        }
+      }
+    },
+    "lang_code": {
+      "title": "Sprache",
+      "description": "Sprache des Artikels als Sprachcode nach ISO 639-2",
+      "type": "string",
+      "pattern": "^[a-z]{3}$"
+    },
+    "fulltext_url": {
+      "title": "URL zum Volltext",
+      "type": "string"
+    },
+    "abstracts": {
+      "title": "Abstracts, Zusammenfassungen usw.",
+      "description": "Mit Angabe der Sprache als Sprachcode aus ISO 639-2",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "lang_code": {
+            "type": "string",
+            "pattern": "^[a-z]{3}$"
+          }
+        }
+      }
+    },
+    "subject_terms": {
+      "title": "Sacherschließung",
+      "description": "Mit Angabe des Sacherschließungssystems und der Sprache als Sprachcode aus ISO 639-2",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "terms": {
+            "title": "Sacherschließungsterme",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "scheme": {
+            "title": "Sacherschließungssystem",
+            "description": "Bezeichnung des Sacherschließungssystems",
+            "type": "string"
+          },
+          "lang_code": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "copyright": {
+      "title": "Copyrightvermerk",
+      "description": "",
+      "type": "string"
+    },
+    "other": {
+      "type": "object",
+      "title": "Sonst noch was?",
+      "description": "In den key 'other' kann ein JSON-Objekt mit weiteren Daten geschrieben werden. Dieses Objekt muss mit einem JSON-Schema spezifiziert sein und es sollte ein Mapping des Objekts auf Picaplus-Felder mitgeliefert werden."
+    }
+  }
+}
