@@ -79,7 +79,7 @@
           "role": {
             "type": "string",
             "title": "role",
-            "description": "Roller der Person in Bezug auf den Artikel als relator code nach https://www.gbv.de/bibliotheken/verbundbibliotheken/02Verbund/01Erschliessung/02Richtlinien/02KatRichtRDA/anhaenge/anhang-beziehungskennzeichen",
+            "description": "Rolle der Person in Bezug auf den Artikel als relator code nach https://www.gbv.de/bibliotheken/verbundbibliotheken/02Verbund/01Erschliessung/02Richtlinien/02KatRichtRDA/anhaenge/anhang-beziehungskennzeichen",
             "examples": [
               "aut",
               "edt",
@@ -93,7 +93,7 @@
             "properties": {
               "name": {
                 "type": "string",
-                "title": "Name der Einrichrung",
+                "title": "Name der Einrichtung",
                 "description": "Name der Einrichtung"
               },
               "affiliation_ids": {
@@ -161,6 +161,12 @@
       "type": "object",
       "title": "Zeitschrift",
       "description": "Quellenangabe",
+      "required": [
+        "title",
+        "year",
+        "start_page",
+        "end_page"
+      ],
       "properties": {
         "title": {
           "title": "Titel",
@@ -178,6 +184,10 @@
           "type": "array",
           "items": {
             "type": "object",
+            "require": [
+              "type",
+              "id"
+            ],
             "properties": {
               "id": {
                 "title": "ID",
@@ -236,6 +246,10 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "required": [
+                  "type",
+                  "id"
+                ],
                 "properties": {
                   "id": {
                     "title": "ID",
@@ -277,7 +291,7 @@
     },
     "fulltext_url": {
       "title": "URL zum Volltext",
-      "type": "string"
+      "type": "string",
     },
     "abstracts": {
       "title": "Abstracts, Zusammenfassungen usw.",
@@ -302,6 +316,10 @@
       "type": "array",
       "items": {
         "type": "object",
+        "required": [
+          "scheme",
+          "terms"
+        ],
         "properties": {
           "terms": {
             "title": "Sacherschließungsterme",
