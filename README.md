@@ -17,11 +17,11 @@ Vorbemerkungen....
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [abstracts](#abstracts) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [additional_data](#additional_data) | `object` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [copyright](#copyright) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [fulltext_url](#fulltext_url) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [journal](#journal) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [lang_code](#lang_code) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [other](#other) | `object` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [other_ids](#other_ids) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [persons](#persons) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [primary_id](#primary_id) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
@@ -107,6 +107,31 @@ undefined
 
 
 
+
+
+
+
+
+
+## additional_data
+### Sonst noch was?
+
+In den key 'additional_data' kann ein JSON-Objekt mit weiteren Daten geschrieben werden. Dieses Objekt muss mit einem JSON-Schema spezifiziert sein und es sollte ein Mapping des Objekts auf Picaplus-Felder mitgeliefert werden.
+
+`additional_data`
+
+* is optional
+* type: `object`
+* defined in this schema
+
+### additional_data Type
+
+
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
 
 
 
@@ -619,31 +644,6 @@ All instances must conform to this regular expression
 ```regex
 ^[a-z]{3}$
 ```
-
-
-
-
-
-
-## other
-### Sonst noch was?
-
-In den key 'other' kann ein JSON-Objekt mit weiteren Daten geschrieben werden. Dieses Objekt muss mit einem JSON-Schema spezifiziert sein und es sollte ein Mapping des Objekts auf Picaplus-Felder mitgeliefert werden.
-
-`other`
-
-* is optional
-* type: `object`
-* defined in this schema
-
-### other Type
-
-
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
 
 
 
