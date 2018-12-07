@@ -4,6 +4,7 @@
 ```
 https://uri.gbv.de/schema/article/01/schema#
 ```
+HTML-Dokumentation: http://findex.gbv.de/articleformatdoc/schemas/article_schema.html
 
 Vorbemerkungen....
 
