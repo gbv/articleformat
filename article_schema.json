@@ -344,10 +344,10 @@
       "description": "",
       "type": "string"
     },
-    "other": {
+    "additional_data": {
       "type": "object",
       "title": "Sonst noch was?",
-      "description": "In den key 'other' kann ein JSON-Objekt mit weiteren Daten geschrieben werden. Dieses Objekt muss mit einem JSON-Schema spezifiziert sein und es sollte ein Mapping des Objekts auf Picaplus-Felder mitgeliefert werden."
+      "description": "In den key 'additional_data' kann ein JSON-Objekt mit weiteren Daten geschrieben werden. Dieses Objekt muss mit einem JSON-Schema spezifiziert sein und es sollte ein Mapping des Objekts auf Picaplus-Felder mitgeliefert werden."
     }
   }
 }
