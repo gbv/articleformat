@@ -3,7 +3,7 @@
   "$id": "https://uri.gbv.de/schema/article/01/schema#",
   "type": "object",
   "title": "Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG",
-  "description": "Vorbemerkungen....",
+  "description": "Dieses JSON-Schema (https://json-schema.org/) beschreibt ein JSON-Format zur Lieferung von bibliographischen Metadaten zu Zeitschriftenartikeln an die Verbundzentrale des GBV (VZG).",
   "required": [
     "primary_id",
     "title",
@@ -19,7 +19,7 @@
     "other_ids": {
       "type": "array",
       "title": "weitere IDs",
-      "description": "Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (Frage: brauchen wir getrennte keys für andere IDs, die den Datensatz identifizieren, und IDs, die den Artikel identifizieren?)",
+      "description": "Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV",
       "items": {
         "type": "object",
         "required": [
@@ -285,7 +285,7 @@
     },
     "lang_code": {
       "title": "Sprache",
-      "description": "Sprache des Artikels als Sprachcode nach ISO 639-2",
+      "description": "Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV",
       "type": "string",
       "pattern": "^[a-z]{3}$"
     },
@@ -295,15 +295,18 @@
     },
     "abstracts": {
       "title": "Abstracts, Zusammenfassungen usw.",
-      "description": "Mit Angabe der Sprache als Sprachcode aus ISO 639-2",
+      "description": "Text mit Angabe der Sprache als Sprachcode aus ISO 639-2",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "text": {
+            "title": "Text des Abstracts",
             "type": "string"
           },
           "lang_code": {
+            "title": "Sprachcode",
+            "description": "Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV",
             "type": "string",
             "pattern": "^[a-z]{3}$"
           }
@@ -323,6 +326,7 @@
         "properties": {
           "terms": {
             "title": "Sacherschließungsterme",
+            "description": "Sacherschließungsterme als Array, jeder Term als eigenes Feld",
             "type": "array",
             "items": {
               "type": "string"
@@ -334,7 +338,10 @@
             "type": "string"
           },
           "lang_code": {
-            "type": "string"
+            "title": "Sprachcode",
+            "description": "Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV",
+            "type": "string",
+            "pattern": "^[a-z]{3}$"
           }
         }
       }
