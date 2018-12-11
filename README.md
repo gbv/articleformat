@@ -4,9 +4,8 @@
 ```
 https://uri.gbv.de/schema/article/01/schema#
 ```
-HTML-Dokumentation: http://findex.gbv.de/articleformatdoc/schemas/article_schema.html
 
-Vorbemerkungen....
+Dieses JSON-Schema (https://json-schema.org/) beschreibt ein JSON-Format zur Lieferung von bibliographischen Metadaten zu Zeitschriftenartikeln an die Verbundzentrale des GBV (VZG).
 
 | Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|--------------|-------------------|-----------------------|------------|
@@ -32,7 +31,7 @@ Vorbemerkungen....
 ## abstracts
 ### Abstracts, Zusammenfassungen usw.
 
-Mit Angabe der Sprache als Sprachcode aus ISO 639-2
+Text mit Angabe der Sprache als Sprachcode aus ISO 639-2
 
 `abstracts`
 
@@ -57,8 +56,9 @@ All items must be of the type:
 
 
 #### lang_code
+##### Sprachcode
 
-undefined
+Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
 
 `lang_code`
 
@@ -86,6 +86,7 @@ All instances must conform to this regular expression
 
 
 #### text
+##### Text des Abstracts
 
 undefined
 
@@ -624,7 +625,7 @@ All instances must conform to this regular expression
 ## lang_code
 ### Sprache
 
-Sprache des Artikels als Sprachcode nach ISO 639-2
+Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
 
 `lang_code`
 
@@ -653,7 +654,7 @@ All instances must conform to this regular expression
 ## other_ids
 ### weitere IDs
 
-Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (Frage: brauchen wir getrennte keys für andere IDs, die den Datensatz identifizieren, und IDs, die den Artikel identifizieren?)
+Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV
 
 `other_ids`
 
@@ -1096,8 +1097,9 @@ All items must be of the type:
 
 
 #### lang_code
+##### Sprachcode
 
-undefined
+Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
 
 `lang_code`
 
@@ -1109,6 +1111,13 @@ undefined
 
 `string`
 
+
+
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5Ba-z%5D%7B3%7D%24)):
+```regex
+^[a-z]{3}$
+```
 
 
 
@@ -1143,7 +1152,7 @@ Bezeichnung des Sacherschließungssystems
 #### terms
 ##### Sacherschließungsterme
 
-undefined
+Sacherschließungsterme als Array, jeder Term als eigenes Feld
 
 `terms`
 
