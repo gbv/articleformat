@@ -58,7 +58,7 @@ All items must be of the type:
 #### lang_code
 ##### Sprachcode
 
-Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
+Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
 
 `lang_code`
 
@@ -625,7 +625,7 @@ All instances must conform to this regular expression
 ## lang_code
 ### Sprache
 
-Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
+Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
 
 `lang_code`
 
@@ -1099,7 +1099,7 @@ All items must be of the type:
 #### lang_code
 ##### Sprachcode
 
-Sprachcode aus ISE 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
+Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
 
 `lang_code`
 
