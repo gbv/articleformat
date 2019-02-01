@@ -18,14 +18,14 @@ Dieses JSON-Schema (https://json-schema.org/) beschreibt ein JSON-Format zur Lie
 | [abstracts](#abstracts) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [additional_data](#additional_data) | `object` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [copyright](#copyright) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [fulltext_url](#fulltext_url) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [journal](#journal) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [lang_code](#lang_code) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [lang_code](#lang_code) | `string[]` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [other_ids](#other_ids) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [persons](#persons) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [primary_id](#primary_id) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [primary_id](#primary_id) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [subject_terms](#subject_terms) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [title](#title) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [urls](#urls) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
 ## abstracts
@@ -159,26 +159,6 @@ In den key 'additional_data' kann ein JSON-Objekt mit weiteren Daten geschrieben
 
 
 
-## fulltext_url
-### URL zum Volltext
-
-`fulltext_url`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### fulltext_url Type
-
-
-`string`
-
-
-
-
-
-
-
 ## journal
 ### Zeitschrift
 
@@ -198,41 +178,17 @@ Quellenangabe
 
 | Property | Type | Required |
 |----------|------|----------|
-| `coden`| string | Optional |
 | `day`| string | Optional |
-| `end_page`| string | **Required** |
+| `end_page`| string | Optional |
 | `issue`| string | Optional |
 | `journal_ids`| array | Optional |
 | `month`| string | Optional |
 | `place`| string | Optional |
 | `publisher`| object | Optional |
-| `start_page`| string | **Required** |
+| `start_page`| string | Optional |
 | `title`| string | **Required** |
 | `volume`| string | Optional |
 | `year`| string | **Required** |
-
-
-
-#### coden
-##### Coden
-
-Hmmm, ist das nicht eine ID?
-
-`coden`
-
-* is optional
-* type: `string`
-
-##### coden Type
-
-
-`string`
-
-
-
-
-
-
 
 
 
@@ -273,7 +229,7 @@ undefined
 
 `end_page`
 
-* is **required**
+* is optional
 * type: `string`
 
 ##### end_page Type
@@ -365,7 +321,7 @@ Wert der ID
 #### type
 ##### Typ
 
-Typ der ID, z.B. eissn, pissn, zdbid, springerid usw.
+Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw.
 
 `type`
 
@@ -383,6 +339,10 @@ Typ der ID, z.B. eissn, pissn, zdbid, springerid usw.
 
 
 ##### type Examples
+
+```json
+coden
+```
 
 ```json
 eissn
@@ -527,7 +487,7 @@ undefined
 
 `start_page`
 
-* is **required**
+* is optional
 * type: `string`
 
 ##### start_page Type
@@ -623,19 +583,22 @@ All instances must conform to this regular expression
 
 
 ## lang_code
-### Sprache
+### Sprache(n)
 
-Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
+Sprachcode(s) aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
 
 `lang_code`
 
 * is **required**
-* type: `string`
+* type: `string[]`
 * defined in this schema
 
 ### lang_code Type
 
 
+Array type: `string[]`
+
+All items must be of the type:
 `string`
 
 
@@ -645,6 +608,9 @@ All instances must conform to this regular expression
 ```regex
 ^[a-z]{3}$
 ```
+
+
+
 
 
 
@@ -1047,20 +1013,84 @@ ill
 
 
 ## primary_id
-### Primäre ID
 
-primäre ID des Datensatzes in der Datenquelle
 
 `primary_id`
 
 * is **required**
-* type: `string`
+* type: `object`
 * defined in this schema
 
 ### primary_id Type
 
 
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `id`| string | **Required** |
+| `type`| string | **Required** |
+
+
+
+#### id
+##### Primäre ID
+
+primäre ID des Datensatzes in der Datenquelle
+
+`id`
+
+* is **required**
+* type: `string`
+
+##### id Type
+
+
 `string`
+
+
+
+
+
+
+
+
+
+#### type
+##### Typ
+
+Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel
+
+`type`
+
+* is **required**
+* type: `string`
+
+##### type Type
+
+
+`string`
+
+
+
+
+
+
+##### type Examples
+
+```json
+oai_id
+```
+
+```json
+https://gso.gbv.de/DB=2.1/
+```
+
+```json
+oclc
+```
+
 
 
 
@@ -1187,7 +1217,7 @@ All items must be of the type:
 ## title
 ### Titel
 
-Der vollständige Titel des Artikels
+Der vollständige Titel des Artikels. Der Eintrag in diesem Feld kann ggf. aus mehreren Teilen des Titels in der Datenquelle gebildet werden, z.B. 'Research on Phosphatases of Belladona Leaves and Their Purification' plus 'Part 1' -> 'Research on Phosphatases of Belladona Leaves and Their Purification, Part 1'.
 
 `title`
 
@@ -1199,6 +1229,109 @@ Der vollständige Titel des Artikels
 
 
 `string`
+
+
+
+
+
+
+
+## urls
+### URLs zum Artikel
+
+URLs zum Artikel mit Angabe zum 'Bezugswerk' in 'scope' sowie zu Benutzungsbedingungen in 'access_info'
+
+`urls`
+
+* is optional
+* type: `object[]`
+* defined in this schema
+
+### urls Type
+
+
+Array type: `object[]`
+
+All items must be of the type:
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `access_info`| string | **Required** |
+| `scope`| string | **Required** |
+| `url`| string | **Required** |
+
+
+
+#### access_info
+##### Codierte Zugangsbedingungen
+
+Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierungsrichtlinie für PICA3 4085 $4: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$4
+
+`access_info`
+
+* is **required**
+* type: `string`
+
+##### access_info Type
+
+
+`string`
+
+
+
+
+
+
+
+
+
+#### scope
+##### Bezugswerk
+
+Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen Arten von 'Linkzielen' nach Typ codiert werden gemäß Katalogisierungsrichtlinie für PICA3-Feld 4085 $3: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$3
+
+`scope`
+
+* is **required**
+* type: `string`
+
+##### scope Type
+
+
+`string`
+
+
+
+
+
+
+
+
+
+#### url
+##### URL
+
+undefined
+
+`url`
+
+* is **required**
+* type: `string`
+
+##### url Type
+
+
+`string`
+
+
+
+
+
+
+
+
 
 
 
