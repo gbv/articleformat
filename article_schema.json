@@ -182,9 +182,7 @@
       "description": "Quellenangabe",
       "required": [
         "title",
-        "year",
-        "start_page",
-        "end_page"
+        "year"
       ],
       "properties": {
         "title": {
