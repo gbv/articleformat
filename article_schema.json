@@ -12,9 +12,28 @@
   ],
   "properties": {
     "primary_id": {
-      "type": "string",
-      "title": "Primäre ID",
-      "description": "primäre ID des Datensatzes in der Datenquelle"
+      "type": "object",
+      "required": [
+        "id",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Primäre ID",
+          "description": "primäre ID des Datensatzes in der Datenquelle"
+        },
+        "type": {
+          "type": "string",
+          "title": "Typ",
+          "description": "Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel",
+          "examples": [
+            "oai_id",
+            "https://gso.gbv.de/DB=2.1/",
+            "oclc"
+          ]
+        }
+      }
     },
     "other_ids": {
       "type": "array",
