@@ -173,11 +173,6 @@
           "description": "Titel der Zeitschrift",
           "type": "string"
         },
-        "coden": {
-          "title": "Coden",
-          "description": "Hmmm, ist das nicht eine ID?",
-          "type": "string"
-        },
         "journal_ids": {
           "title": "IDs der Zeitschrift",
           "description": "Identifier der Zeitschrift, z.B. E-ISSN, P-ISSN, ZDB-ID, publisher -ID usw.",
@@ -196,9 +191,10 @@
               },
               "type": {
                 "title": "Typ",
-                "description": "Typ der ID, z.B. eissn, pissn, zdbid, springerid usw.",
+                "description": "Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw.",
                 "type": "string",
                 "examples": [
+		  "coden",
                   "eissn",
                   "pissn",
                   "zdbid"
