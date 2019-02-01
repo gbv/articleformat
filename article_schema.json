@@ -304,11 +304,35 @@
         "type": "string",
         "pattern": "^[a-z]{3}$"
       }
-      
     },
-    "fulltext_url": {
-      "title": "URL zum Volltext",
-      "type": "string"
+    "urls": {
+      "title": "URLs zum Artikel",
+      "description": "URLs zum Artikel mit Angabe zum 'Bezugswerk' in 'scope' sowie zu Benutzungsbedingungen in 'access_info'",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "url",
+          "scope",
+          "access_info"
+        ],
+        "properties": {
+          "url": {
+            "title": "URL",
+            "type": "string"
+          },
+          "scope": {
+            "title": "Bezugswerk",
+            "description": "Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen Arten von 'Linkzielen' nach Typ codiert werden gemäß Katalogisierungsrichtlinie für PICA3-Feld 4085 $3: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$3",
+            "type": "string"
+          },
+          "access_info": {
+            "title": "Codierte Zugangsbedingungen",
+            "description": "Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierungsrichtlinie für PICA3 4085 $4: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$4",
+            "type": "string"
+          }
+        }
+      }
     },
     "abstracts": {
       "title": "Abstracts, Zusammenfassungen usw.",
