@@ -68,7 +68,7 @@
     "title": {
       "type": "string",
       "title": "Titel",
-      "description": "Der vollständige Titel des Artikels"
+      "description": "Der vollständige Titel des Artikels. Der Eintrag in diesem Feld kann ggf. aus mehreren Teilen des Titels in der Datenquelle gebildet werden, z.B. 'Research on Phosphatases of Belladona Leaves and Their Purification' plus 'Part 1' -> 'Research on Phosphatases of Belladona Leaves and Their Purification, Part 1'."
     },
     "persons": {
       "type": "array",
