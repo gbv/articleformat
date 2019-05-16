@@ -102,7 +102,7 @@
           "role": {
             "type": "string",
             "title": "role",
-            "description": "Rolle der Person in Bezug auf den Artikel als relator code nach https://www.gbv.de/bibliotheken/verbundbibliotheken/02Verbund/01Erschliessung/02Richtlinien/02KatRichtRDA/anhaenge/anhang-beziehungskennzeichen",
+            "description": "Rolle der Person in Bezug auf den Artikel als relator code nach https://opus.k10plus.de/frontdoor/deliver/index/docId/421/file/Liste_Beziehungskennzeichnungen_3010_3110.pdf",
             "examples": [
               "aut",
               "edt",
