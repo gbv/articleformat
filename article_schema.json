@@ -336,7 +336,8 @@
           "scope": {
             "title": "Bezugswerk",
             "description": "Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen Arten von 'Linkzielen' nach Typ codiert werden gemäß Katalogisierungsrichtlinie für PICA3-Feld 4085 $3: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$3",
-            "type": "string"
+            "type": "string",
+            "pattern": "^$|^[0-9][0-9]$"
           },
           "access_info": {
             "title": "Codierte Zugangsbedingungen",
