@@ -21,12 +21,14 @@
         "id": {
           "type": "string",
           "title": "Primäre ID",
+          "minLength": 1,
           "description": "primäre ID des Datensatzes in der Datenquelle"
         },
         "type": {
           "type": "string",
+          "minLength": 1,
           "title": "Typ",
-          "description": "Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel",
+          "description": "Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel . Falls unkbekannt: unknown",
           "examples": [
             "oai_id",
             "https://gso.gbv.de/DB=2.1/",
@@ -49,12 +51,14 @@
           "id": {
             "title": "ID",
             "description": "Wert der ID",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "type": {
             "type": "string",
+            "minLength": 1,
             "title": "Typ",
-            "description": "Typ der ID",
+            "description": "Typ der ID. Falls unkbekannt: unknown",
             "examples": [
               "doi",
               "oclc",
@@ -129,12 +133,14 @@
                     "id": {
                       "title": "ID",
                       "description": "Wert der ID",
-                      "type": "string"
+                      "type": "string",
+                      "minLength": 1
                     },
                     "type": {
                       "title": "type",
-                      "description": "Typ der ID (z.B. gnd, viaf, ???)",
+                      "description": "Typ der ID (z.B. gnd, viaf, ???). Falls unkbekannt: unknown",
                       "type": "string",
+                      "minLength": 1,
                       "examples": [
                         "gnd",
                         "viaf"
@@ -159,12 +165,14 @@
                 "id": {
                   "title": "ID",
                   "description": "Wert der ID",
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 "type": {
                   "title": "Typ",
-                  "description": "Typ der ID (z.B. gnd, orcid, viaf, ...)",
+                  "description": "Typ der ID (z.B. gnd, orcid, viaf, ...). Falls unkbekannt: unknown",
                   "type": "string",
+                  "minLength": 1,
                   "examples": [
                     "orcid",
                     "gnd"
@@ -204,12 +212,14 @@
               "id": {
                 "title": "ID",
                 "description": "Wert der ID",
-                "type": "string"
+                "type": "string",
+                "minLength": 1
               },
               "type": {
                 "title": "Typ",
-                "description": "Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw.",
+                "description": "Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw. Falls unkbekannt: unknown",
                 "type": "string",
+                "minLength": 1,
                 "examples": [
 		  "coden",
                   "eissn",
@@ -267,12 +277,14 @@
                   "id": {
                     "title": "ID",
                     "description": "Wert der ID",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   },
                   "type": {
                     "title": "Typ",
-                    "description": "Typ der ID, z.B. gnd",
+                    "description": "Typ der ID, z.B. gnd. Falls unkbekannt: unknown",
                     "type": "string",
+                    "minLength": 1,
                     "examples": [
                       "gnd"
                     ]
