@@ -151,7 +151,7 @@
               }
             }
           },
-          "person-ids": {
+          "person_ids": {
             "type": "array",
             "title": "IDs der Person",
             "description": "Identifier, die die Person identifizieren (z.B. GND, ORCID, ...)",
