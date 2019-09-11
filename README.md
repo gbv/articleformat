@@ -310,7 +310,7 @@ Wert der ID
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -321,7 +321,7 @@ Wert der ID
 #### type
 ##### Typ
 
-Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw.
+Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw. Falls unkbekannt: unknown
 
 `type`
 
@@ -333,7 +333,7 @@ Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw.
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -456,12 +456,14 @@ Unknown type `object`.
           "id": {
             "title": "ID",
             "description": "Wert der ID",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "type": {
             "title": "Typ",
-            "description": "Typ der ID, z.B. gnd",
+            "description": "Typ der ID, z.B. gnd. Falls unkbekannt: unknown",
             "type": "string",
+            "minLength": 1,
             "examples": [
               "gnd"
             ]
@@ -659,7 +661,7 @@ Wert der ID
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -670,7 +672,7 @@ Wert der ID
 #### type
 ##### Typ
 
-Typ der ID
+Typ der ID. Falls unkbekannt: unknown
 
 `type`
 
@@ -682,7 +684,7 @@ Typ der ID
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -740,7 +742,7 @@ All items must be of the type:
 | `firstname`| string | Optional |
 | `fullname`| string | **Required** |
 | `lastname`| string | Optional |
-| `person-ids`| array | Optional |
+| `person_ids`| array | Optional |
 | `role`| string | Optional |
 
 
@@ -784,12 +786,14 @@ Unknown type `object`.
           "id": {
             "title": "ID",
             "description": "Wert der ID",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "type": {
             "title": "type",
-            "description": "Typ der ID (z.B. gnd, viaf, ???)",
+            "description": "Typ der ID (z.B. gnd, viaf, ???). Falls unkbekannt: unknown",
             "type": "string",
+            "minLength": 1,
             "examples": [
               "gnd",
               "viaf"
@@ -878,18 +882,18 @@ Nachname
 
 
 
-#### person-ids
+#### person_ids
 ##### IDs der Person
 
 Identifier, die die Person identifizieren (z.B. GND, ORCID, ...)
 
-`person-ids`
+`person_ids`
 
 * is optional
 * type: `object[]`
 
 
-##### person-ids Type
+##### person_ids Type
 
 
 Array type: `object[]`
@@ -920,7 +924,7 @@ Wert der ID
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -931,7 +935,7 @@ Wert der ID
 #### type
 ##### Typ
 
-Typ der ID (z.B. gnd, orcid, viaf, ...)
+Typ der ID (z.B. gnd, orcid, viaf, ...). Falls unkbekannt: unknown
 
 `type`
 
@@ -943,7 +947,7 @@ Typ der ID (z.B. gnd, orcid, viaf, ...)
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -972,7 +976,7 @@ gnd
 #### role
 ##### role
 
-Rolle der Person in Bezug auf den Artikel als relator code nach https://www.gbv.de/bibliotheken/verbundbibliotheken/02Verbund/01Erschliessung/02Richtlinien/02KatRichtRDA/anhaenge/anhang-beziehungskennzeichen
+Rolle der Person in Bezug auf den Artikel als relator code nach https://opus.k10plus.de/frontdoor/deliver/index/docId/421/file/Liste_Beziehungskennzeichnungen_3010_3110.pdf
 
 `role`
 
@@ -1049,7 +1053,7 @@ primäre ID des Datensatzes in der Datenquelle
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1060,7 +1064,7 @@ primäre ID des Datensatzes in der Datenquelle
 #### type
 ##### Typ
 
-Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel
+Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel . Falls unkbekannt: unknown
 
 `type`
 
@@ -1072,7 +1076,7 @@ Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, 
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1290,7 +1294,7 @@ Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierun
 #### scope
 ##### Bezugswerk
 
-Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen Arten von 'Linkzielen' nach Typ codiert werden gemäß Katalogisierungsrichtlinie für PICA3-Feld 4085 $3: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$3
+Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen Arten von 'Linkzielen' nach Typ codiert werden mit ONIX-Codes gemäß Katalogisierungsrichtlinie für PICA3-Feld 4085 $3: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$3
 
 `scope`
 
@@ -1302,6 +1306,13 @@ Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen 
 
 `string`
 
+
+
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%24%7C%5E%5B0-9%5D%5B0-9%5D%24)):
+```regex
+^$|^[0-9][0-9]$
+```
 
 
 
