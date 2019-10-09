@@ -10,180 +10,7 @@
     "lang_code",
     "journal"
   ],
-  "properties": {
-    "primary_id": {
-      "type": "object",
-      "required": [
-        "id",
-        "type"
-      ],
-      "properties": {
-        "id": {
-          "type": "string",
-          "title": "Primäre ID",
-          "minLength": 1,
-          "description": "primäre ID des Datensatzes in der Datenquelle"
-        },
-        "type": {
-          "type": "string",
-          "minLength": 1,
-          "title": "Typ",
-          "description": "Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel . Falls unkbekannt: unknown",
-          "examples": [
-            "oai_id",
-            "https://gso.gbv.de/DB=2.1/",
-            "oclc"
-          ]
-        }
-      }
-    },
-    "other_ids": {
-      "type": "array",
-      "title": "weitere IDs",
-      "description": "Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV",
-      "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "type"
-        ],
-        "properties": {
-          "id": {
-            "title": "ID",
-            "description": "Wert der ID",
-            "type": "string",
-            "minLength": 1
-          },
-          "type": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Typ",
-            "description": "Typ der ID. Falls unkbekannt: unknown",
-            "examples": [
-              "doi",
-              "oclc",
-              "urn",
-              "oai_id"
-            ]
-          }
-        }
-      }
-    },
-    "title": {
-      "type": "string",
-      "title": "Titel",
-      "description": "Der vollständige Titel des Artikels. Der Eintrag in diesem Feld kann ggf. aus mehreren Teilen des Titels in der Datenquelle gebildet werden, z.B. 'Research on Phosphatases of Belladona Leaves and Their Purification' plus 'Part 1' -> 'Research on Phosphatases of Belladona Leaves and Their Purification, Part 1'."
-    },
-    "persons": {
-      "type": "array",
-      "title": "Personen",
-      "description": "alle am Artikel beteiligten Personen in der Reihenfolge der Nennung im Artikel",
-      "items": {
-        "type": "object",
-        "required": [
-          "fullname"
-        ],
-        "properties": {
-          "fullname": {
-            "type": "string",
-            "title": "Voller Name",
-            "description": "persönlicher Name, dieser wird auch verwendet, wenn eine Aufteilung in Nachname, Vorname nicht möglich ist. Verfassende Organisationen (Körperschaften) können bei Aufsätzen auch als „persönlicher Name“ angegeben werden"
-          },
-          "firstname": {
-            "type": "string",
-            "title": "Vorname",
-            "description": "Vorname"
-          },
-          "lastname": {
-            "type": "string",
-            "title": "Nachname",
-            "description": "Nachname"
-          },
-          "role": {
-            "type": "string",
-            "title": "role",
-            "description": "Rolle der Person in Bezug auf den Artikel als relator code nach https://opus.k10plus.de/frontdoor/deliver/index/docId/421/file/Liste_Beziehungskennzeichnungen_3010_3110.pdf",
-            "examples": [
-              "aut",
-              "edt",
-              "ill"
-            ]
-          },
-          "affiliation": {
-            "type": "object",
-            "title": "Zugehörigkeit",
-            "description": "Zugehörigkeit einer Person zu einer Einrichtung (z.B. Universität, Firma, Forschungseinrichtung usw.)",
-            "properties": {
-              "name": {
-                "type": "string",
-                "title": "Name der Einrichtung",
-                "description": "Name der Einrichtung"
-              },
-              "affiliation_ids": {
-                "type": "array",
-                "title": "Identifier der Einrichtung",
-                "description": "Identifier, die die Einrichtung identifizieren",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "type"
-                  ],
-                  "properties": {
-                    "id": {
-                      "title": "ID",
-                      "description": "Wert der ID",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "type": {
-                      "title": "type",
-                      "description": "Typ der ID (z.B. gnd, viaf, ???). Falls unkbekannt: unknown",
-                      "type": "string",
-                      "minLength": 1,
-                      "examples": [
-                        "gnd",
-                        "viaf"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "person_ids": {
-            "type": "array",
-            "title": "IDs der Person",
-            "description": "Identifier, die die Person identifizieren (z.B. GND, ORCID, ...)",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "type"
-              ],
-              "properties": {
-                "id": {
-                  "title": "ID",
-                  "description": "Wert der ID",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "type": {
-                  "title": "Typ",
-                  "description": "Typ der ID (z.B. gnd, orcid, viaf, ...). Falls unkbekannt: unknown",
-                  "type": "string",
-                  "minLength": 1,
-                  "examples": [
-                    "orcid",
-                    "gnd"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+  "definitions": {
     "journal": {
       "type": "object",
       "title": "Zeitschrift",
@@ -306,6 +133,205 @@
           "title": "Endseite",
           "type": "string"
         }
+      }
+    }
+  },
+  "properties": {
+    "primary_id": {
+      "type": "object",
+      "required": [
+        "id",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Primäre ID",
+          "minLength": 1,
+          "description": "primäre ID des Datensatzes in der Datenquelle"
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Typ",
+          "description": "Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel . Falls unkbekannt: unknown",
+          "examples": [
+            "oai_id",
+            "https://gso.gbv.de/DB=2.1/",
+            "oclc"
+          ]
+        }
+      }
+    },
+    "other_ids": {
+      "type": "array",
+      "title": "weitere IDs",
+      "description": "Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "title": "ID",
+            "description": "Wert der ID",
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Typ",
+            "description": "Typ der ID. Falls unkbekannt: unknown",
+            "examples": [
+              "doi",
+              "oclc",
+              "urn",
+              "oai_id"
+            ]
+          }
+        }
+      }
+    },
+    "title": {
+      "type": "string",
+      "title": "Titel",
+      "description": "Der Haupttitel des Artikels"
+    },
+    "subTitle": {
+      "type": "string",
+      "title": "Titel",
+      "description": "Eventuelle Ergänzung zum Haupttitel"
+    },
+    "otherTitles": {
+      "type": "array",
+      "title": "Weitere Titel",
+      "description": "Weitere Titelformen",
+      "items": {
+        "type": "string"
+      }
+    },
+    "persons": {
+      "type": "array",
+      "title": "Personen",
+      "description": "alle am Artikel beteiligten Personen in der Reihenfolge der Nennung im Artikel",
+      "items": {
+        "type": "object",
+        "required": [
+          "fullname"
+        ],
+        "properties": {
+          "fullname": {
+            "type": "string",
+            "title": "Voller Name",
+            "description": "persönlicher Name, dieser wird auch verwendet, wenn eine Aufteilung in Nachname, Vorname nicht möglich ist. Verfassende Organisationen (Körperschaften) können bei Aufsätzen auch als „persönlicher Name“ angegeben werden"
+          },
+          "firstname": {
+            "type": "string",
+            "title": "Vorname",
+            "description": "Vorname"
+          },
+          "lastname": {
+            "type": "string",
+            "title": "Nachname",
+            "description": "Nachname"
+          },
+          "role": {
+            "type": "string",
+            "title": "role",
+            "description": "Rolle der Person in Bezug auf den Artikel als relator code nach https://opus.k10plus.de/frontdoor/deliver/index/docId/421/file/Liste_Beziehungskennzeichnungen_3010_3110.pdf",
+            "examples": [
+              "aut",
+              "edt",
+              "ill"
+            ]
+          },
+          "affiliation": {
+            "type": "object",
+            "title": "Zugehörigkeit",
+            "description": "Zugehörigkeit einer Person zu einer Einrichtung (z.B. Universität, Firma, Forschungseinrichtung usw.)",
+            "properties": {
+              "name": {
+                "type": "string",
+                "title": "Name der Einrichtung",
+                "description": "Name der Einrichtung"
+              },
+              "affiliation_ids": {
+                "type": "array",
+                "title": "Identifier der Einrichtung",
+                "description": "Identifier, die die Einrichtung identifizieren",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "type"
+                  ],
+                  "properties": {
+                    "id": {
+                      "title": "ID",
+                      "description": "Wert der ID",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "type": {
+                      "title": "type",
+                      "description": "Typ der ID (z.B. gnd, viaf, ???). Falls unkbekannt: unknown",
+                      "type": "string",
+                      "minLength": 1,
+                      "examples": [
+                        "gnd",
+                        "viaf"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "person_ids": {
+            "type": "array",
+            "title": "IDs der Person",
+            "description": "Identifier, die die Person identifizieren (z.B. GND, ORCID, ...)",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "type"
+              ],
+              "properties": {
+                "id": {
+                  "title": "ID",
+                  "description": "Wert der ID",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "type": {
+                  "title": "Typ",
+                  "description": "Typ der ID (z.B. gnd, orcid, viaf, ...). Falls unkbekannt: unknown",
+                  "type": "string",
+                  "minLength": 1,
+                  "examples": [
+                    "orcid",
+                    "gnd"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "journal": {
+      "$ref" : "#/definitions/journal"
+    },
+    "relatedWorks": {
+      "type": "array",
+      "title": "Weitere Veröffentlichungen",
+      "description": "Hier können im gleichen Format zu 'journal' weitere Verknüpfungen untergebracht werden.",
+      "items": {
+        "$ref": "#/definitions/journal"
       }
     },
     "lang_code": {
