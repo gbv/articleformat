@@ -9,7 +9,7 @@ Dieses JSON-Schema (https://json-schema.org/) beschreibt ein JSON-Format zur Lie
 
 | Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|--------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [article_schema.json](article_schema.json) |
+| Can be instantiated | Yes | Experimental | No | Forbidden | Permitted | [article_schema.json](article_schema.json) |
 
 # Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG Properties
 
@@ -20,9 +20,12 @@ Dieses JSON-Schema (https://json-schema.org/) beschreibt ein JSON-Format zur Lie
 | [copyright](#copyright) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [journal](#journal) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [lang_code](#lang_code) | `string[]` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [otherTitles](#othertitles) | `string[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [other_ids](#other_ids) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [persons](#persons) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [primary_id](#primary_id) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [relatedWorks](#relatedworks) | reference | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [subTitle](#subtitle) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [subject_terms](#subject_terms) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [title](#title) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [urls](#urls) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
@@ -619,6 +622,34 @@ All instances must conform to this regular expression
 
 
 
+## otherTitles
+### Weitere Titel
+
+Weitere Titelformen
+
+`otherTitles`
+
+* is optional
+* type: `string[]`
+* defined in this schema
+
+### otherTitles Type
+
+
+Array type: `string[]`
+
+All items must be of the type:
+`string`
+
+
+
+
+
+
+
+
+
+
 ## other_ids
 ### weitere IDs
 
@@ -1102,6 +1133,54 @@ oclc
 
 
 
+## relatedWorks
+### Weitere Veröffentlichungen
+
+Hier können im gleichen Format zu 'journal' weitere Verknüpfungen untergebracht werden.
+
+`relatedWorks`
+
+* is optional
+* type: reference
+* defined in this schema
+
+### relatedWorks Type
+
+
+Array type: reference
+
+All items must be of the type:
+* []() – `#/definitions/journal`
+
+
+
+
+
+
+
+
+## subTitle
+### Titel
+
+Eventuelle Ergänzung zum Haupttitel
+
+`subTitle`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### subTitle Type
+
+
+`string`
+
+
+
+
+
+
+
 ## subject_terms
 ### Sacherschließung
 
@@ -1221,7 +1300,7 @@ All items must be of the type:
 ## title
 ### Titel
 
-Der vollständige Titel des Artikels. Der Eintrag in diesem Feld kann ggf. aus mehreren Teilen des Titels in der Datenquelle gebildet werden, z.B. 'Research on Phosphatases of Belladona Leaves and Their Purification' plus 'Part 1' -> 'Research on Phosphatases of Belladona Leaves and Their Purification, Part 1'.
+Der Haupttitel des Artikels
 
 `title`
 
@@ -1344,6 +1423,440 @@ undefined
 
 
 
+
+
+
+
+
+
+# Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG Definitions
+
+| Property | Type | Group |
+|----------|------|-------|
+| [day](#day) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [end_page](#end_page) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [issue](#issue) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [journal_ids](#journal_ids) | `object[]` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [month](#month) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [place](#place) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [publisher](#publisher) | `object` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [start_page](#start_page) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [volume](#volume) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+| [year](#year) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
+
+## day
+### Tag
+
+Tag des Erscheinens als zweistellige Zahl
+
+`day`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### day Type
+
+
+`string`
+
+
+
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B2%7D%24)):
+```regex
+^[0-9]{2}$
+```
+
+
+
+
+
+
+## end_page
+### Endseite
+
+`end_page`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### end_page Type
+
+
+`string`
+
+
+
+
+
+
+
+## issue
+### Ausgabe
+
+`issue`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### issue Type
+
+
+`string`
+
+
+
+
+
+
+
+## journal_ids
+### IDs der Zeitschrift
+
+Identifier der Zeitschrift, z.B. E-ISSN, P-ISSN, ZDB-ID, publisher -ID usw.
+
+`journal_ids`
+
+* is optional
+* type: `object[]`
+* defined in this schema
+
+### journal_ids Type
+
+
+Array type: `object[]`
+
+All items must be of the type:
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `id`| string | Optional |
+| `type`| string | Optional |
+
+
+
+#### id
+##### ID
+
+Wert der ID
+
+`id`
+
+* is optional
+* type: `string`
+
+##### id Type
+
+
+`string`
+
+* minimum length: 1 characters
+
+
+
+
+
+
+
+#### type
+##### Typ
+
+Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw. Falls unkbekannt: unknown
+
+`type`
+
+* is optional
+* type: `string`
+
+##### type Type
+
+
+`string`
+
+* minimum length: 1 characters
+
+
+
+
+##### type Examples
+
+```json
+coden
+```
+
+```json
+eissn
+```
+
+```json
+pissn
+```
+
+```json
+zdbid
+```
+
+
+
+
+
+
+
+
+
+
+## month
+### Monat
+
+Monat des Erscheinens als zweistellige Zahl
+
+`month`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### month Type
+
+
+`string`
+
+
+
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B2%7D%24)):
+```regex
+^[0-9]{2}$
+```
+
+
+
+
+
+
+## place
+### Erscheinungsort
+
+`place`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### place Type
+
+
+`string`
+
+
+
+
+
+
+
+## publisher
+### Verlag
+
+Angaben zum Verlag, falls bekannt mit einem Identifier des Verlages (z.B. GND)
+
+`publisher`
+
+* is optional
+* type: `object`
+* defined in this schema
+
+### publisher Type
+
+
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `name`| string | Optional |
+| `publisher_ids`| array | Optional |
+
+
+
+#### name
+##### Name des Verlages
+
+undefined
+
+`name`
+
+* is optional
+* type: `string`
+
+##### name Type
+
+
+`string`
+
+
+
+
+
+
+
+
+
+#### publisher_ids
+
+undefined
+
+`publisher_ids`
+
+* is optional
+* type: `object[]`
+
+
+##### publisher_ids Type
+
+
+Array type: `object[]`
+
+All items must be of the type:
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `id`| string | **Required** |
+| `type`| string | **Required** |
+
+
+
+#### id
+##### ID
+
+Wert der ID
+
+`id`
+
+* is **required**
+* type: `string`
+
+##### id Type
+
+
+`string`
+
+* minimum length: 1 characters
+
+
+
+
+
+
+
+#### type
+##### Typ
+
+Typ der ID, z.B. gnd. Falls unkbekannt: unknown
+
+`type`
+
+* is **required**
+* type: `string`
+
+##### type Type
+
+
+`string`
+
+* minimum length: 1 characters
+
+
+
+
+##### type Example
+
+```json
+gnd
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## start_page
+### Anfangsseite
+
+`start_page`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### start_page Type
+
+
+`string`
+
+
+
+
+
+
+
+## volume
+### Band
+
+`volume`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### volume Type
+
+
+`string`
+
+
+
+
+
+
+
+## year
+### Erscheinungsjahr
+
+Erscheinungsjahr als vierstellige Zahl
+
+`year`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### year Type
+
+
+`string`
+
+
+
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B4%7D%24)):
+```regex
+^[0-9]{4}$
+```
 
 
 
