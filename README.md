@@ -103,7 +103,7 @@ undefined
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -156,7 +156,7 @@ In den key 'additional_data' kann ein JSON-Objekt mit weiteren Daten geschrieben
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -240,7 +240,7 @@ undefined
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -263,7 +263,7 @@ undefined
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -415,7 +415,7 @@ undefined
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -445,7 +445,8 @@ Unknown type `object`.
   "properties": {
     "name": {
       "title": "Name des Verlages",
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "publisher_ids": {
       "type": "array",
@@ -500,7 +501,7 @@ undefined
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -523,7 +524,7 @@ Titel der Zeitschrift
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -546,7 +547,7 @@ undefined
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -641,7 +642,7 @@ Array type: `string[]`
 All items must be of the type:
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -653,7 +654,7 @@ All items must be of the type:
 ## other_ids
 ### weitere IDs
 
-Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV
+Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (hier keine Identifier zu Zeitschriften, Personen usw.) Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV
 
 `other_ids`
 
@@ -801,7 +802,8 @@ Unknown type `object`.
     "name": {
       "type": "string",
       "title": "Name der Einrichtung",
-      "description": "Name der Einrichtung"
+      "description": "Name der Einrichtung",
+      "minLength": 1
     },
     "affiliation_ids": {
       "type": "array",
@@ -859,7 +861,7 @@ Vorname
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -882,7 +884,7 @@ persönlicher Name, dieser wird auch verwendet, wenn eine Aufteilung in Nachname
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -905,7 +907,7 @@ Nachname
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1019,7 +1021,7 @@ Rolle der Person in Bezug auf den Artikel als relator code nach https://opus.k10
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1119,7 +1121,7 @@ oai_id
 ```
 
 ```json
-https://gso.gbv.de/DB=2.1/
+https://kxp.k10plus.de/DB=2.1/
 ```
 
 ```json
@@ -1175,7 +1177,7 @@ Eventuelle Ergänzung zum Haupttitel
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1281,7 +1283,7 @@ Array type: `string[]`
 All items must be of the type:
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1313,7 +1315,7 @@ Der Haupttitel des Artikels
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1415,7 +1417,7 @@ undefined
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1487,7 +1489,7 @@ All instances must conform to this regular expression
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1507,7 +1509,7 @@ All instances must conform to this regular expression
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1653,7 +1655,7 @@ All instances must conform to this regular expression
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1698,7 +1700,7 @@ undefined
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1808,7 +1810,7 @@ gnd
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
@@ -1828,7 +1830,7 @@ gnd
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
