@@ -157,7 +157,7 @@
           "description": "Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel . Falls unkbekannt: unknown",
           "examples": [
             "oai_id",
-            "https://gso.gbv.de/DB=2.1/",
+            "https://kxp.k10plus.de/DB=2.1/",
             "oclc"
           ]
         }
@@ -166,7 +166,7 @@
     "other_ids": {
       "type": "array",
       "title": "weitere IDs",
-      "description": "Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV",
+      "description": "Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (hier keine Identifier zu Zeitschriften, Personen usw.) Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV",
       "items": {
         "type": "object",
         "required": [
