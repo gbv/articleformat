@@ -23,7 +23,8 @@
         "title": {
           "title": "Titel",
           "description": "Titel der Zeitschrift",
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "journal_ids": {
           "title": "IDs der Zeitschrift",
@@ -48,7 +49,7 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-		  "coden",
+                  "coden",
                   "eissn",
                   "pissn",
                   "zdbid"
@@ -77,11 +78,13 @@
         },
         "volume": {
           "title": "Band",
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "issue": {
           "title": "Ausgabe",
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "publisher": {
           "type": "object",
@@ -90,7 +93,8 @@
           "properties": {
             "name": {
               "title": "Name des Verlages",
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "publisher_ids": {
               "type": "array",
@@ -123,15 +127,18 @@
         },
         "place": {
           "title": "Erscheinungsort",
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "start_page": {
           "title": "Anfangsseite",
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "end_page": {
           "title": "Endseite",
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         }
       }
     }
@@ -198,19 +205,22 @@
     "title": {
       "type": "string",
       "title": "Titel",
-      "description": "Der Haupttitel des Artikels"
+      "description": "Der Haupttitel des Artikels",
+      "minLength": 1
     },
     "subTitle": {
       "type": "string",
       "title": "Titel",
-      "description": "Eventuelle Ergänzung zum Haupttitel"
+      "description": "Eventuelle Ergänzung zum Haupttitel",
+      "minLength": 1
     },
     "otherTitles": {
       "type": "array",
       "title": "Weitere Titel",
       "description": "Weitere Titelformen",
       "items": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       }
     },
     "persons": {
@@ -226,22 +236,26 @@
           "fullname": {
             "type": "string",
             "title": "Voller Name",
-            "description": "persönlicher Name, dieser wird auch verwendet, wenn eine Aufteilung in Nachname, Vorname nicht möglich ist. Verfassende Organisationen (Körperschaften) können bei Aufsätzen auch als „persönlicher Name“ angegeben werden"
+            "description": "persönlicher Name, dieser wird auch verwendet, wenn eine Aufteilung in Nachname, Vorname nicht möglich ist. Verfassende Organisationen (Körperschaften) können bei Aufsätzen auch als „persönlicher Name“ angegeben werden",
+            "minLength": 1
           },
           "firstname": {
             "type": "string",
             "title": "Vorname",
-            "description": "Vorname"
+            "description": "Vorname",
+            "minLength": 1
           },
           "lastname": {
             "type": "string",
             "title": "Nachname",
-            "description": "Nachname"
+            "description": "Nachname",
+            "minLength": 1
           },
           "role": {
             "type": "string",
             "title": "role",
             "description": "Rolle der Person in Bezug auf den Artikel als relator code nach https://opus.k10plus.de/frontdoor/deliver/index/docId/421/file/Liste_Beziehungskennzeichnungen_3010_3110.pdf",
+            "minLength": 1,
             "examples": [
               "aut",
               "edt",
@@ -256,7 +270,8 @@
               "name": {
                 "type": "string",
                 "title": "Name der Einrichtung",
-                "description": "Name der Einrichtung"
+                "description": "Name der Einrichtung",
+                "minLength": 1
               },
               "affiliation_ids": {
                 "type": "array",
@@ -357,7 +372,8 @@
         "properties": {
           "url": {
             "title": "URL",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "scope": {
             "title": "Bezugswerk",
@@ -382,7 +398,8 @@
         "properties": {
           "text": {
             "title": "Text des Abstracts",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "lang_code": {
             "title": "Sprachcode",
@@ -409,7 +426,8 @@
             "description": "Sacherschließungsterme als Array, jeder Term als eigenes Feld",
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             }
           },
           "scheme": {
@@ -429,7 +447,8 @@
     "copyright": {
       "title": "Copyrightvermerk",
       "description": "",
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "additional_data": {
       "type": "object",
