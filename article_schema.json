@@ -433,7 +433,8 @@
           "scheme": {
             "title": "Sacherschließungssystem",
             "description": "Bezeichnung des Sacherschließungssystems",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "lang_code": {
             "title": "Sprachcode",
