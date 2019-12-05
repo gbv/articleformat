@@ -395,6 +395,9 @@
       "type": "array",
       "items": {
         "type": "object",
+        "required": [
+          "text"
+        ],
         "properties": {
           "text": {
             "title": "Text des Abstracts",
