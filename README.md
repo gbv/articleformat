@@ -54,7 +54,7 @@ All items must be of the type:
 | Property | Type | Required |
 |----------|------|----------|
 | `lang_code`| string | Optional |
-| `text`| string | Optional |
+| `text`| string | **Required** |
 
 
 
@@ -95,7 +95,7 @@ undefined
 
 `text`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### text Type
@@ -1256,7 +1256,7 @@ Bezeichnung des Sacherschließungssystems
 
 `string`
 
-
+* minimum length: 1 characters
 
 
 
