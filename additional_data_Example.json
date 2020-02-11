@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://uri.gbv.de/schema/article/01/schema#additional_data_Example",
+  "type": "object",
+  "title": "Ein einfaches Beispiel für ein Schema für additional_data",
+  "properties": {
+    "reviews": {
+      "title": "Review / Rezension",
+      "description": "Text der Rezension mit Angabe der Sprache als Sprachcode aus ISO 639-2",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "title": "Text der Rezension",
+            "type": "string",
+            "minLength": 1
+          },
+          "lang_code": {
+            "title": "Sprachcode",
+            "description": "Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV",
+            "type": "string",
+            "pattern": "^[a-z]{3}$"
+          }
+        }
+      }
+    }
+  }
+}

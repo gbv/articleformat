@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://uri.gbv.de/schema/article/01/schema/additional_data_Example#",
+    "allOf": [
+      {
+        "$ref": "https://uri.gbv.de/schema/article/01/schema#"
+      },
+      { 
+        "properties": {
+          "additional_data": {
+            "$ref": "https://uri.gbv.de/schema/article/01/schema#additional_data_Example"
+          } 
+        }
+      }
+    ]
+}
