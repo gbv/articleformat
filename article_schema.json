@@ -32,7 +32,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "require": [
+            "required": [
               "type",
               "id"
             ],
