@@ -18,6 +18,7 @@ Dieses JSON-Schema (https://json-schema.org/) beschreibt ein JSON-Format zur Lie
 | [abstracts](#abstracts) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [additional_data](#additional_data) | `object` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [copyright](#copyright) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
+| [dateOfProduction](#dateofproduction) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [journal](#journal) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [lang_code](#lang_code) | `string[]` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
 | [otherTitles](#othertitles) | `string[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
@@ -162,6 +163,35 @@ In den key 'additional_data' kann ein JSON-Objekt mit weiteren Daten geschrieben
 
 
 
+## dateOfProduction
+### Herstellungsdatum
+
+Herstellungsdatum (z.B. Datum der Digitalisierung). Das Datum kann als vierstelliges Jahr (YYYY), Jahr und Monat (YYYY-MM) oder Jahr, Monat und Tag (YYYY-MM-DD) angegeben werden. s.a. PICA 1108 $p: https://swbtools.bsz-bw.de/cgi-bin/k10plushelp.pl?cmd=kat&val=1108&katalog=Standard
+
+`dateOfProduction`
+
+* is optional
+* type: `string`
+* defined in this schema
+
+### dateOfProduction Type
+
+
+`string`
+
+
+
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B4%7D(-%5B0-9%5D%7B2%7D)%7B0%2C2%7D%24)):
+```regex
+^[0-9]{4}(-[0-9]{2}){0,2}$
+```
+
+
+
+
+
+
 ## journal
 ### Zeitschrift
 
@@ -293,8 +323,8 @@ All items must be of the type:
 
 | Property | Type | Required |
 |----------|------|----------|
-| `id`| string | Optional |
-| `type`| string | Optional |
+| `id`| string | **Required** |
+| `type`| string | **Required** |
 
 
 
@@ -305,7 +335,7 @@ Wert der ID
 
 `id`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### id Type
@@ -328,7 +358,7 @@ Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw. Falls unkbekannt: u
 
 `type`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### type Type
@@ -1537,8 +1567,8 @@ All items must be of the type:
 
 | Property | Type | Required |
 |----------|------|----------|
-| `id`| string | Optional |
-| `type`| string | Optional |
+| `id`| string | **Required** |
+| `type`| string | **Required** |
 
 
 
@@ -1549,7 +1579,7 @@ Wert der ID
 
 `id`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### id Type
@@ -1572,7 +1602,7 @@ Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw. Falls unkbekannt: u
 
 `type`
 
-* is optional
+* is **required**
 * type: `string`
 
 ##### type Type
