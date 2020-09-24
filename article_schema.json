@@ -454,6 +454,12 @@
       "type": "string",
       "minLength": 1
     },
+    "dateOfProduction": {
+      "title": "Herstellungsdatum",
+      "description": "Herstellungsdatum (z.B. Datum der Digitalisierung). Das Datum kann als vierstelliges Jahr (YYYY), Jahr und Monat (YYYY-MM) oder Jahr, Monat und Tag (YYYY-MM-DD) angegeben werden. s.a. PICA 1108 $p: https://swbtools.bsz-bw.de/cgi-bin/k10plushelp.pl?cmd=kat&val=1108&katalog=Standard",
+      "type": "string",
+      "pattern": "^[0-9]{4}(-[0-9]{2}){0,2}$"
+    },
     "additional_data": {
       "type": "object",
       "title": "Sonst noch was?",
