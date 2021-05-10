@@ -385,6 +385,11 @@
             "title": "Codierte Zugangsbedingungen",
             "description": "Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierungsrichtlinie für PICA3 4085 $4: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$4",
             "type": "string"
+          },
+          "remarks": {
+            "title": "Allgemeine Bermerkung",
+            "description": "Bemerkungen zur URL als Text, die in PICA3-Feld 4950 $z abgelegt werden",
+            "type": "string"
           }
         }
       }
