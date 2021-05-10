@@ -205,7 +205,7 @@
     "collection_ids": {
       "type": "array",
       "title": "IDs von Datensammlungen",
-      "description": "Datensätze können über diese IDs bestehenden Datensammlungen zugeordnet werden. Verwendung bitte je Projket mit der Verbundzentrale (VZG) abklären. Beispiele: SSG-Nummer/FID-Kennzeichen, Produktsigel usw.",
+      "description": "Datensätze können über diese IDs bestehenden Datensammlungen zugeordnet werden. Verwendung bitte je Projekt mit der Verbundzentrale (VZG) abklären. Beispiele: SSG-Nummer/FID-Kennzeichen, Produktsigel usw.",
       "items": {
         "type": "object",
         "required": [
@@ -418,7 +418,7 @@
             "type": "string"
           },
           "remarks": {
-            "title": "Allgemeine Bermerkung",
+            "title": "Allgemeine Bemerkung",
             "description": "Bemerkungen zur URL als Text, die in PICA3-Feld 4950 $z abgelegt werden",
             "type": "string"
           }
