@@ -202,6 +202,37 @@
         }
       }
     },
+    "collection_ids": {
+      "type": "array",
+      "title": "IDs von Datensammlungen",
+      "description": "Datensätze können über diese IDs bestehenden Datensammlungen zugeordnet werden. Verwendung bitte je Projket mit der Verbundzentrale (VZG) abklären. Beispiele: SSG-Nummer/FID-Kennzeichen, Produktsigel usw.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "title": "ID",
+            "description": "Wert der ID",
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Typ",
+            "description": "Typ der ID. Falls unkbekannt: unknown",
+            "examples": [
+              "sigel",
+              "fid",
+              "ssg"
+            ]
+          }
+        }
+      }
+    },    
     "title": {
       "type": "string",
       "title": "Titel",
