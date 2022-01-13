@@ -429,8 +429,21 @@
             "description": "Sacherschließungsterme als Array, jeder Term als eigenes Feld",
             "type": "array",
             "items": {
-              "type": "string",
-              "minLength": 1
+              "type": ["string", "object"],
+              "minLength": 1,
+              "minProperties": 1,
+              "properties": {
+                "term": {
+                  "title": "Term/Bezeichnung",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "title": "Identifikator/Notation innerhalb des Sacherschließungssystems",
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
             }
           },
           "scheme": {
