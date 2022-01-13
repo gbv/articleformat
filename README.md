@@ -684,7 +684,7 @@ All items must be of the type:
 ## other_ids
 ### weitere IDs
 
-Weitere Identifier aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (hier keine Identifier zu Zeitschriften, Personen usw.) Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV
+Weitere Identifier für den Artikel aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (hier keine Identifier zu Zeitschriften, Personen usw.) Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV
 
 `other_ids`
 
@@ -1297,23 +1297,51 @@ Bezeichnung des Sacherschließungssystems
 #### terms
 ##### Sacherschließungsterme
 
-Sacherschließungsterme als Array, jeder Term als eigenes Feld
+Sacherschließungsterme als Array. Entweder jeder Term als eigenes String-Feld; oder als Objekt bestehend aus einer Bezeichnung und einer ID oder Notation (z.B. GND-ID)
 
 `terms`
 
 * is **required**
-* type: `string[]`
+* type: `array`
 
 
 ##### terms Type
 
 
-Array type: `string[]`
+Array type: `array`
 
 All items must be of the type:
-`string`
+Unknown type `string,object`.
 
-* minimum length: 1 characters
+```json
+{
+  "title": "Sacherschließungsterme",
+  "description": "Sacherschließungsterme als Array. Entweder jeder Term als eigenes String-Feld; oder als Objekt bestehend aus einer Bezeichnung und einer ID oder Notation (z.B. GND-ID)",
+  "type": "array",
+  "items": {
+    "type": [
+      "string",
+      "object"
+    ],
+    "minLength": 1,
+    "minProperties": 1,
+    "properties": {
+      "term": {
+        "title": "Term/Bezeichnung",
+        "type": "string",
+        "minLength": 1
+      },
+      "id": {
+        "title": "Identifikator/Notation innerhalb des Sacherschließungssystems",
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "simpletype": "complex"
+  },
+  "simpletype": "`array`"
+}
+```
 
 
 
