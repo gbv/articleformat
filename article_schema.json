@@ -202,6 +202,37 @@
         }
       }
     },
+    "collection_ids": {
+      "type": "array",
+      "title": "IDs von Datensammlungen",
+      "description": "Datensätze können über diese IDs bestehenden Datensammlungen zugeordnet werden. Verwendung bitte je Projekt mit der Verbundzentrale (VZG) abklären. Beispiele: SSG-Nummer/FID-Kennzeichen, Produktsigel usw.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "title": "ID",
+            "description": "Wert der ID",
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Typ",
+            "description": "Typ der ID. Falls unkbekannt: unknown",
+            "examples": [
+              "sigel",
+              "fid",
+              "ssg"
+            ]
+          }
+        }
+      }
+    },    
     "title": {
       "type": "string",
       "title": "Titel",
@@ -384,6 +415,11 @@
           "access_info": {
             "title": "Codierte Zugangsbedingungen",
             "description": "Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierungsrichtlinie für PICA3 4085 $4: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$4",
+            "type": "string"
+          },
+          "remarks": {
+            "title": "Allgemeine Bemerkung",
+            "description": "Bemerkungen zur URL als Text, die in PICA3-Feld 4950 $z abgelegt werden",
             "type": "string"
           }
         }
