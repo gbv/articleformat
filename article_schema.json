@@ -426,7 +426,7 @@
         "properties": {
           "terms": {
             "title": "Sacherschließungsterme",
-            "description": "Sacherschließungsterme als Array, jeder Term als eigenes Feld",
+            "description": "Sacherschließungsterme als Array. Entweder jeder Term als eigenes String-Feld; oder als Objekt bestehend aus einer Bezeichnung und einer ID oder Notation (z.B. GND-ID)",
             "type": "array",
             "items": {
               "type": ["string", "object"],
