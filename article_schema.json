@@ -232,7 +232,7 @@
           }
         }
       }
-    },    
+    },
     "title": {
       "type": "string",
       "title": "Titel",
@@ -397,7 +397,6 @@
         "type": "object",
         "required": [
           "url",
-          "scope",
           "access_info"
         ],
         "properties": {
@@ -405,6 +404,12 @@
             "title": "URL",
             "type": "string",
             "minLength": 1
+          },
+          "scope": {
+            "title": "Bezugswerk",
+            "description": "Falls es sich um URLs handelt die NICHT zum Volltext führen, müssen diese gemäß Katalogisierungsrichtlinie für PICA3-Feld 4960 $3 codiert werden: https://format.k10plus.de/k10plushelp.pl?cmd=kat&val=4960&katalog=Standard#$3",
+            "type": "string",
+            "pattern": "^$|^[0-9][0-9]$"
           },
           "access_info": {
             "title": "Codierte Zugangsbedingungen",
