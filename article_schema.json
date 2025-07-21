@@ -59,20 +59,20 @@
           }
         },
         "year": {
-          "title": "Erscheinungsjahr",
-          "description": "Erscheinungsjahr als vierstellige Zahl",
+          "title": "Erscheinungsjahr des Artikels",
+          "description": "Erscheinungsjahr des Artikels als vierstellige Zahl",
           "type": "string",
           "pattern": "^[0-9]{4}$"
         },
         "month": {
-          "title": "Monat",
-          "description": "Monat des Erscheinens als zweistellige Zahl",
+          "title": "Escheinungsmonat des Artikels",
+          "description": "Monat des Erscheinens des Artikels als zweistellige Zahl",
           "type": "string",
           "pattern": "^[0-9]{2}$"
         },
         "day": {
-          "title": "Tag",
-          "description": "Tag des Erscheinens als zweistellige Zahl",
+          "title": "Erscheinungstag des Artikels",
+          "description": "Tag des Erscheinens des Artikels als zweistellige Zahl",
           "type": "string",
           "pattern": "^[0-9]{2}$"
         },
@@ -161,7 +161,7 @@
           "type": "string",
           "minLength": 1,
           "title": "Typ",
-          "description": "Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel . Falls unkbekannt: unknown",
+          "description": "Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: https://format.k10plus.de/k10plushelp.pl?cmd=index&katalog=Standard&val=-1&adm=0#titel . Falls unkbekannt: unknown",
           "examples": [
             "oai_id",
             "https://kxp.k10plus.de/DB=2.1/",
@@ -173,7 +173,7 @@
     "other_ids": {
       "type": "array",
       "title": "weitere IDs",
-      "description": "Weitere Identifier für den Artikel aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (hier keine Identifier zu Zeitschriften, Personen usw.) Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV",
+      "description": "Weitere Identifier für den Artikel aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (hier keine Identifier zu Zeitschriften, Personen usw.) Vergleiche https://format.k10plus.de/k10plushelp.pl?cmd=kat&val=2113&katalog=Standard",
       "items": {
         "type": "object",
         "required": [
@@ -382,7 +382,7 @@
     },
     "lang_code": {
       "title": "Sprache(n)",
-      "description": "Sprachcode(s) aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV",
+      "description": "Sprachcode(s) aus ISO 639-2. Zur Verwendung siehe https://format.k10plus.de/k10plushelp.pl?cmd=kat&val=1500&katalog=Standard",
       "type": "array",
       "items": {
         "type": "string",
@@ -391,7 +391,7 @@
     },
     "urls": {
       "title": "URLs zum Artikel",
-      "description": "URLs zum Artikel mit Angabe zum 'Bezugswerk' in 'scope' sowie zu Benutzungsbedingungen in 'access_info'",
+      "description": "URLs zum Artikel mit Benutzungsbedingungen in 'access_info'",
       "type": "array",
       "items": {
         "type": "object",
@@ -406,15 +406,9 @@
             "type": "string",
             "minLength": 1
           },
-          "scope": {
-            "title": "Bezugswerk",
-            "description": "Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen Arten von 'Linkzielen' nach Typ codiert werden mit ONIX-Codes gemäß Katalogisierungsrichtlinie für PICA3-Feld 4085 $3: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$3",
-            "type": "string",
-            "pattern": "^$|^[0-9][0-9]$"
-          },
           "access_info": {
             "title": "Codierte Zugangsbedingungen",
-            "description": "Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierungsrichtlinie für PICA3 4085 $4: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$4",
+            "description": "Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierungsrichtlinie für PICA3 4950 $4: https://format.k10plus.de/k10plushelp.pl?cmd=kat&val=4950&katalog=Standard#$4",
             "type": "string"
           },
           "remarks": {
@@ -442,7 +436,7 @@
           },
           "lang_code": {
             "title": "Sprachcode",
-            "description": "Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV",
+            "description": "Sprachcode aus ISO 639-2. Zur Verwendung siehe https://format.k10plus.de/k10plushelp.pl?cmd=kat&val=1500&katalog=Standard",
             "type": "string",
             "pattern": "^[a-z]{3}$"
           }
@@ -490,7 +484,7 @@
           },
           "lang_code": {
             "title": "Sprachcode",
-            "description": "Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV",
+            "description": "Sprachcode aus ISO 639-2. Zur Verwendung siehe https://format.k10plus.de/k10plushelp.pl?cmd=kat&val=1500&katalog=Standard",
             "type": "string",
             "pattern": "^[a-z]{3}$"
           }
@@ -505,7 +499,7 @@
     },
     "dateOfProduction": {
       "title": "Herstellungsdatum",
-      "description": "Herstellungsdatum (z.B. Datum der Digitalisierung). Das Datum kann als vierstelliges Jahr (YYYY), Jahr und Monat (YYYY-MM) oder Jahr, Monat und Tag (YYYY-MM-DD) angegeben werden. s.a. PICA 1108 $p: https://swbtools.bsz-bw.de/cgi-bin/k10plushelp.pl?cmd=kat&val=1108&katalog=Standard",
+      "description": "Herstellungsdatum (z.B. Datum der Digitalisierung). Das Datum kann als vierstelliges Jahr (YYYY), Jahr und Monat (YYYY-MM) oder Jahr, Monat und Tag (YYYY-MM-DD) angegeben werden. s.a. PICA 1108 $p: https://format.k10plus.de/k10plushelp.pl?cmd=kat&val=1108&katalog=Standard",
       "type": "string",
       "pattern": "^[0-9]{4}(-[0-9]{2}){0,2}$"
     },
