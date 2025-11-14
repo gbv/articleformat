@@ -1,1924 +1,488 @@
-
-# Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG Schema
-
-```
-https://uri.gbv.de/schema/article/01/schema#
-```
-
-Dieses JSON-Schema (https://json-schema.org/) beschreibt ein JSON-Format zur Lieferung von bibliographischen Metadaten zu Zeitschriftenartikeln an die Verbundzentrale des GBV (VZG). HTML-Dokumentation: http://findex.gbv.de/articleformatdoc/schemas/article_schema.html
-
-| Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|--------------|-------------------|-----------------------|------------|
-| Can be instantiated | Yes | Experimental | No | Forbidden | Permitted | [article_schema.json](article_schema.json) |
-
-# Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG Properties
-
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [abstracts](#abstracts) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [additional_data](#additional_data) | `object` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [copyright](#copyright) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [dateOfProduction](#dateofproduction) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [journal](#journal) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [lang_code](#lang_code) | `string[]` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [otherTitles](#othertitles) | `string[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [other_ids](#other_ids) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [persons](#persons) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [primary_id](#primary_id) | `object` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [relatedWorks](#relatedworks) | reference | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [subTitle](#subtitle) | `string` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [subject_terms](#subject_terms) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [title](#title) | `string` | **Required** | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| [urls](#urls) | `object[]` | Optional | Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
-
-## abstracts
-### Abstracts, Zusammenfassungen usw.
-
-Text mit Angabe der Sprache als Sprachcode aus ISO 639-2
-
-`abstracts`
-
-* is optional
-* type: `object[]`
-* defined in this schema
-
-### abstracts Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `lang_code`| string | Optional |
-| `text`| string | **Required** |
-
-
-
-#### lang_code
-##### Sprachcode
-
-Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
-
-`lang_code`
-
-* is optional
-* type: `string`
-
-##### lang_code Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5Ba-z%5D%7B3%7D%24)):
-```regex
-^[a-z]{3}$
-```
-
-
-
-
-
-
-
-
-#### text
-##### Text des Abstracts
-
-undefined
-
-`text`
-
-* is **required**
-* type: `string`
-
-##### text Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-
-
-
-
-
-
-## additional_data
-### Sonst noch was?
-
-In den key 'additional_data' kann ein JSON-Objekt mit weiteren Daten geschrieben werden. Dieses Objekt muss mit einem JSON-Schema spezifiziert sein und es sollte ein Mapping des Objekts auf Picaplus-Felder mitgeliefert werden.
-
-`additional_data`
-
-* is optional
-* type: `object`
-* defined in this schema
-
-### additional_data Type
-
-
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-
-
-
-
-
-
-## copyright
-### Copyrightvermerk
-
-`copyright`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### copyright Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-## dateOfProduction
-### Herstellungsdatum
-
-Herstellungsdatum (z.B. Datum der Digitalisierung). Das Datum kann als vierstelliges Jahr (YYYY), Jahr und Monat (YYYY-MM) oder Jahr, Monat und Tag (YYYY-MM-DD) angegeben werden. s.a. PICA 1108 $p: https://swbtools.bsz-bw.de/cgi-bin/k10plushelp.pl?cmd=kat&val=1108&katalog=Standard
-
-`dateOfProduction`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### dateOfProduction Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B4%7D(-%5B0-9%5D%7B2%7D)%7B0%2C2%7D%24)):
-```regex
-^[0-9]{4}(-[0-9]{2}){0,2}$
-```
-
-
-
-
-
-
-## journal
-### Zeitschrift
-
-Quellenangabe
-
-`journal`
-
-* is **required**
-* type: `object`
-* defined in this schema
-
-### journal Type
-
-
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `day`| string | Optional |
-| `end_page`| string | Optional |
-| `issue`| string | Optional |
-| `journal_ids`| array | Optional |
-| `month`| string | Optional |
-| `place`| string | Optional |
-| `publisher`| object | Optional |
-| `start_page`| string | Optional |
-| `title`| string | **Required** |
-| `volume`| string | Optional |
-| `year`| string | **Required** |
-
-
-
-#### day
-##### Tag
-
-Tag des Erscheinens als zweistellige Zahl
-
-`day`
-
-* is optional
-* type: `string`
-
-##### day Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B2%7D%24)):
-```regex
-^[0-9]{2}$
-```
-
-
-
-
-
-
-
-
-#### end_page
-##### Endseite
-
-undefined
-
-`end_page`
-
-* is optional
-* type: `string`
-
-##### end_page Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### issue
-##### Ausgabe
-
-undefined
-
-`issue`
-
-* is optional
-* type: `string`
-
-##### issue Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### journal_ids
-##### IDs der Zeitschrift
-
-Identifier der Zeitschrift, z.B. E-ISSN, P-ISSN, ZDB-ID, publisher -ID usw.
-
-`journal_ids`
-
-* is optional
-* type: `object[]`
-
-
-##### journal_ids Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `id`| string | **Required** |
-| `type`| string | **Required** |
-
-
-
-#### id
-##### ID
-
-Wert der ID
-
-`id`
-
-* is **required**
-* type: `string`
-
-##### id Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### type
-##### Typ
-
-Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw. Falls unkbekannt: unknown
-
-`type`
-
-* is **required**
-* type: `string`
-
-##### type Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-##### type Examples
-
-```json
-coden
-```
-
-```json
-eissn
-```
-
-```json
-pissn
-```
-
-```json
-zdbid
-```
-
-
-
-
-
-
-
-
-
-
-
-
-#### month
-##### Monat
-
-Monat des Erscheinens als zweistellige Zahl
-
-`month`
-
-* is optional
-* type: `string`
-
-##### month Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B2%7D%24)):
-```regex
-^[0-9]{2}$
-```
-
-
-
-
-
-
-
-
-#### place
-##### Erscheinungsort
-
-undefined
-
-`place`
-
-* is optional
-* type: `string`
-
-##### place Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### publisher
-##### Verlag
-
-Angaben zum Verlag, falls bekannt mit einem Identifier des Verlages (z.B. GND)
-
-`publisher`
-
-* is optional
-* type: `object`
-
-##### publisher Type
-
-Unknown type `object`.
-
-```json
-{
-  "type": "object",
-  "title": "Verlag",
-  "description": "Angaben zum Verlag, falls bekannt mit einem Identifier des Verlages (z.B. GND)",
-  "properties": {
-    "name": {
-      "title": "Name des Verlages",
-      "type": "string",
-      "minLength": 1
-    },
-    "publisher_ids": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "type",
-          "id"
-        ],
-        "properties": {
-          "id": {
-            "title": "ID",
-            "description": "Wert der ID",
-            "type": "string",
-            "minLength": 1
-          },
-          "type": {
-            "title": "Typ",
-            "description": "Typ der ID, z.B. gnd. Falls unkbekannt: unknown",
-            "type": "string",
-            "minLength": 1,
-            "examples": [
-              "gnd"
-            ]
-          }
-        }
-      }
-    }
-  },
-  "simpletype": "`object`"
-}
-```
-
-
-
-
-
-
-
-#### start_page
-##### Anfangsseite
-
-undefined
-
-`start_page`
-
-* is optional
-* type: `string`
-
-##### start_page Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### title
-##### Titel
-
-Titel der Zeitschrift
-
-`title`
-
-* is **required**
-* type: `string`
-
-##### title Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### volume
-##### Band
-
-undefined
-
-`volume`
-
-* is optional
-* type: `string`
-
-##### volume Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### year
-##### Erscheinungsjahr
-
-Erscheinungsjahr als vierstellige Zahl
-
-`year`
-
-* is **required**
-* type: `string`
-
-##### year Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B4%7D%24)):
-```regex
-^[0-9]{4}$
-```
-
-
-
-
-
-
-
-
-
-
-
-## lang_code
-### Sprache(n)
-
-Sprachcode(s) aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
-
-`lang_code`
-
-* is **required**
-* type: `string[]`
-* defined in this schema
-
-### lang_code Type
-
-
-Array type: `string[]`
-
-All items must be of the type:
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5Ba-z%5D%7B3%7D%24)):
-```regex
-^[a-z]{3}$
-```
-
-
-
-
-
-
-
-
-
-## otherTitles
-### Weitere Titel
-
-Weitere Titelformen
-
-`otherTitles`
-
-* is optional
-* type: `string[]`
-* defined in this schema
-
-### otherTitles Type
-
-
-Array type: `string[]`
-
-All items must be of the type:
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-
-## other_ids
-### weitere IDs
-
-Weitere Identifier für den Artikel aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (hier keine Identifier zu Zeitschriften, Personen usw.) Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV
-
-`other_ids`
-
-* is optional
-* type: `object[]`
-* defined in this schema
-
-### other_ids Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `id`| string | **Required** |
-| `type`| string | **Required** |
-
-
-
-#### id
-##### ID
-
-Wert der ID
-
-`id`
-
-* is **required**
-* type: `string`
-
-##### id Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### type
-##### Typ
-
-Typ der ID. Falls unkbekannt: unknown
-
-`type`
-
-* is **required**
-* type: `string`
-
-##### type Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-##### type Examples
-
-```json
-doi
-```
-
-```json
-oclc
-```
-
-```json
-urn
-```
-
-```json
-oai_id
-```
-
-
-
-
-
-
-
-
-
-
-## persons
-### Personen
-
-alle am Artikel beteiligten Personen in der Reihenfolge der Nennung im Artikel
-
-`persons`
-
-* is optional
-* type: `object[]`
-* defined in this schema
-
-### persons Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `affiliation`| object | Optional |
-| `firstname`| string | Optional |
-| `fullname`| string | **Required** |
-| `lastname`| string | Optional |
-| `person_ids`| array | Optional |
-| `role`| string | Optional |
-
-
-
-#### affiliation
-##### Zugehörigkeit
-
-Zugehörigkeit einer Person zu einer Einrichtung (z.B. Universität, Firma, Forschungseinrichtung usw.)
-
-`affiliation`
-
-* is optional
-* type: `object`
-
-##### affiliation Type
-
-Unknown type `object`.
-
-```json
-{
-  "type": "object",
-  "title": "Zugehörigkeit",
-  "description": "Zugehörigkeit einer Person zu einer Einrichtung (z.B. Universität, Firma, Forschungseinrichtung usw.)",
-  "properties": {
-    "name": {
-      "type": "string",
-      "title": "Name der Einrichtung",
-      "description": "Name der Einrichtung",
-      "minLength": 1
-    },
-    "affiliation_ids": {
-      "type": "array",
-      "title": "Identifier der Einrichtung",
-      "description": "Identifier, die die Einrichtung identifizieren",
-      "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "type"
-        ],
-        "properties": {
-          "id": {
-            "title": "ID",
-            "description": "Wert der ID",
-            "type": "string",
-            "minLength": 1
-          },
-          "type": {
-            "title": "type",
-            "description": "Typ der ID (z.B. gnd, viaf, ???). Falls unkbekannt: unknown",
-            "type": "string",
-            "minLength": 1,
-            "examples": [
-              "gnd",
-              "viaf"
-            ]
-          }
-        }
-      }
-    }
-  },
-  "simpletype": "`object`"
-}
-```
-
-
-
-
-
-
-
-#### firstname
-##### Vorname
-
-Vorname
-
-`firstname`
-
-* is optional
-* type: `string`
-
-##### firstname Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### fullname
-##### Voller Name
-
-persönlicher Name, dieser wird auch verwendet, wenn eine Aufteilung in Nachname, Vorname nicht möglich ist. Verfassende Organisationen (Körperschaften) können bei Aufsätzen auch als „persönlicher Name“ angegeben werden
-
-`fullname`
-
-* is **required**
-* type: `string`
-
-##### fullname Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### lastname
-##### Nachname
-
-Nachname
-
-`lastname`
-
-* is optional
-* type: `string`
-
-##### lastname Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### person_ids
-##### IDs der Person
-
-Identifier, die die Person identifizieren (z.B. GND, ORCID, ...)
-
-`person_ids`
-
-* is optional
-* type: `object[]`
-
-
-##### person_ids Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `id`| string | **Required** |
-| `type`| string | **Required** |
-
-
-
-#### id
-##### ID
-
-Wert der ID
-
-`id`
-
-* is **required**
-* type: `string`
-
-##### id Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### type
-##### Typ
-
-Typ der ID (z.B. gnd, orcid, viaf, ...). Falls unkbekannt: unknown
-
-`type`
-
-* is **required**
-* type: `string`
-
-##### type Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-##### type Examples
-
-```json
-orcid
-```
-
-```json
-gnd
-```
-
-
-
-
-
-
-
-
-
-
-
-
-#### role
-##### role
-
-Rolle der Person in Bezug auf den Artikel als relator code nach https://opus.k10plus.de/frontdoor/deliver/index/docId/421/file/Liste_Beziehungskennzeichnungen_3010_3110.pdf
-
-`role`
-
-* is optional
-* type: `string`
-
-##### role Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-##### role Examples
-
-```json
-aut
-```
-
-```json
-edt
-```
-
-```json
-ill
-```
-
-
-
-
-
-
-
-
-
-
-## primary_id
-
-
-`primary_id`
-
-* is **required**
-* type: `object`
-* defined in this schema
-
-### primary_id Type
-
-
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `id`| string | **Required** |
-| `type`| string | **Required** |
-
-
-
-#### id
-##### Primäre ID
-
-primäre ID des Datensatzes in der Datenquelle
-
-`id`
-
-* is **required**
-* type: `string`
-
-##### id Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### type
-##### Typ
-
-Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel . Falls unkbekannt: unknown
-
-`type`
-
-* is **required**
-* type: `string`
-
-##### type Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-##### type Examples
-
-```json
-oai_id
-```
-
-```json
-https://kxp.k10plus.de/DB=2.1/
-```
-
-```json
-oclc
-```
-
-
-
-
-
-
-
-
-## relatedWorks
-### Weitere Veröffentlichungen
-
-Hier können im gleichen Format zu 'journal' weitere Verknüpfungen untergebracht werden.
-
-`relatedWorks`
-
-* is optional
-* type: reference
-* defined in this schema
-
-### relatedWorks Type
-
-
-Array type: reference
-
-All items must be of the type:
-* []() – `#/definitions/journal`
-
-
-
-
-
-
-
-
-## subTitle
-### Titel
-
-Eventuelle Ergänzung zum Haupttitel
-
-`subTitle`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### subTitle Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-## subject_terms
-### Sacherschließung
-
-Mit Angabe des Sacherschließungssystems und der Sprache als Sprachcode aus ISO 639-2
-
-`subject_terms`
-
-* is optional
-* type: `object[]`
-* defined in this schema
-
-### subject_terms Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `lang_code`| string | Optional |
-| `scheme`| string | **Required** |
-| `terms`| array | **Required** |
-
-
-
-#### lang_code
-##### Sprachcode
-
-Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV
-
-`lang_code`
-
-* is optional
-* type: `string`
-
-##### lang_code Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5Ba-z%5D%7B3%7D%24)):
-```regex
-^[a-z]{3}$
-```
-
-
-
-
-
-
-
-
-#### scheme
-##### Sacherschließungssystem
-
-Bezeichnung des Sacherschließungssystems
-
-`scheme`
-
-* is **required**
-* type: `string`
-
-##### scheme Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### terms
-##### Sacherschließungsterme
-
-Sacherschließungsterme als Array. Entweder jeder Term als eigenes String-Feld; oder als Objekt bestehend aus einer Bezeichnung und einer ID oder Notation (z.B. GND-ID)
-
-`terms`
-
-* is **required**
-* type: `array`
-
-
-##### terms Type
-
-
-Array type: `array`
-
-All items must be of the type:
-Unknown type `string,object`.
-
-```json
-{
-  "title": "Sacherschließungsterme",
-  "description": "Sacherschließungsterme als Array. Entweder jeder Term als eigenes String-Feld; oder als Objekt bestehend aus einer Bezeichnung und einer ID oder Notation (z.B. GND-ID)",
-  "type": "array",
-  "items": {
-    "type": [
-      "string",
-      "object"
-    ],
-    "minLength": 1,
-    "minProperties": 1,
-    "properties": {
-      "term": {
-        "title": "Term/Bezeichnung",
-        "type": "string",
-        "minLength": 1
-      },
-      "id": {
-        "title": "Identifikator/Notation innerhalb des Sacherschließungssystems",
-        "type": "string",
-        "minLength": 1
-      }
-    },
-    "simpletype": "complex"
-  },
-  "simpletype": "`array`"
-}
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## title
-### Titel
-
-Der Haupttitel des Artikels
-
-`title`
-
-* is **required**
-* type: `string`
-* defined in this schema
-
-### title Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-## urls
-### URLs zum Artikel
-
-URLs zum Artikel mit Angabe zum 'Bezugswerk' in 'scope' sowie zu Benutzungsbedingungen in 'access_info'
-
-`urls`
-
-* is optional
-* type: `object[]`
-* defined in this schema
-
-### urls Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `access_info`| string | **Required** |
-| `scope`| string | **Required** |
-| `url`| string | **Required** |
-
-
-
-#### access_info
-##### Codierte Zugangsbedingungen
-
-Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierungsrichtlinie für PICA3 4085 $4: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$4
-
-`access_info`
-
-* is **required**
-* type: `string`
-
-##### access_info Type
-
-
-`string`
-
-
-
-
-
-
-
-
-
-#### scope
-##### Bezugswerk
-
-Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen Arten von 'Linkzielen' nach Typ codiert werden mit ONIX-Codes gemäß Katalogisierungsrichtlinie für PICA3-Feld 4085 $3: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$3
-
-`scope`
-
-* is **required**
-* type: `string`
-
-##### scope Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%24%7C%5E%5B0-9%5D%5B0-9%5D%24)):
-```regex
-^$|^[0-9][0-9]$
-```
-
-
-
-
-
-
-
-
-#### url
-##### URL
-
-undefined
-
-`url`
-
-* is **required**
-* type: `string`
-
-##### url Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG Definitions
-
-| Property | Type | Group |
-|----------|------|-------|
-| [day](#day) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [end_page](#end_page) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [issue](#issue) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [journal_ids](#journal_ids) | `object[]` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [month](#month) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [place](#place) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [publisher](#publisher) | `object` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [start_page](#start_page) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [volume](#volume) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-| [year](#year) | `string` | `https://uri.gbv.de/schema/article/01/schema##/definitions/journal` |
-
-## day
-### Tag
-
-Tag des Erscheinens als zweistellige Zahl
-
-`day`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### day Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B2%7D%24)):
-```regex
-^[0-9]{2}$
-```
-
-
-
-
-
-
-## end_page
-### Endseite
-
-`end_page`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### end_page Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-## issue
-### Ausgabe
-
-`issue`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### issue Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-## journal_ids
-### IDs der Zeitschrift
-
-Identifier der Zeitschrift, z.B. E-ISSN, P-ISSN, ZDB-ID, publisher -ID usw.
-
-`journal_ids`
-
-* is optional
-* type: `object[]`
-* defined in this schema
-
-### journal_ids Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `id`| string | **Required** |
-| `type`| string | **Required** |
-
-
-
-#### id
-##### ID
-
-Wert der ID
-
-`id`
-
-* is **required**
-* type: `string`
-
-##### id Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### type
-##### Typ
-
-Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw. Falls unkbekannt: unknown
-
-`type`
-
-* is **required**
-* type: `string`
-
-##### type Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-##### type Examples
-
-```json
-coden
-```
-
-```json
-eissn
-```
-
-```json
-pissn
-```
-
-```json
-zdbid
-```
-
-
-
-
-
-
-
-
-
-
-## month
-### Monat
-
-Monat des Erscheinens als zweistellige Zahl
-
-`month`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### month Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B2%7D%24)):
-```regex
-^[0-9]{2}$
-```
-
-
-
-
-
-
-## place
-### Erscheinungsort
-
-`place`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### place Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-## publisher
-### Verlag
-
-Angaben zum Verlag, falls bekannt mit einem Identifier des Verlages (z.B. GND)
-
-`publisher`
-
-* is optional
-* type: `object`
-* defined in this schema
-
-### publisher Type
-
-
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `name`| string | Optional |
-| `publisher_ids`| array | Optional |
-
-
-
-#### name
-##### Name des Verlages
-
-undefined
-
-`name`
-
-* is optional
-* type: `string`
-
-##### name Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### publisher_ids
-
-undefined
-
-`publisher_ids`
-
-* is optional
-* type: `object[]`
-
-
-##### publisher_ids Type
-
-
-Array type: `object[]`
-
-All items must be of the type:
-`object` with following properties:
-
-
-| Property | Type | Required |
-|----------|------|----------|
-| `id`| string | **Required** |
-| `type`| string | **Required** |
-
-
-
-#### id
-##### ID
-
-Wert der ID
-
-`id`
-
-* is **required**
-* type: `string`
-
-##### id Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-
-
-#### type
-##### Typ
-
-Typ der ID, z.B. gnd. Falls unkbekannt: unknown
-
-`type`
-
-* is **required**
-* type: `string`
-
-##### type Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-##### type Example
-
-```json
-gnd
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## start_page
-### Anfangsseite
-
-`start_page`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### start_page Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-## volume
-### Band
-
-`volume`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### volume Type
-
-
-`string`
-
-* minimum length: 1 characters
-
-
-
-
-
-## year
-### Erscheinungsjahr
-
-Erscheinungsjahr als vierstellige Zahl
-
-`year`
-
-* is optional
-* type: `string`
-* defined in this schema
-
-### year Type
-
-
-`string`
-
-
-
-All instances must conform to this regular expression 
-(test examples [here](https://regexr.com/?expression=%5E%5B0-9%5D%7B4%7D%24)):
-```regex
-^[0-9]{4}$
-```
-
-
-
-
-
+# Ein einfaches Schema zur Lieferung von Daten zu Zeitschriftenartikeln an die VZG
+
+*Dieses JSON-Schema (https://json-schema.org/) beschreibt ein JSON-Format zur Lieferung von bibliographischen Metadaten zu Zeitschriftenartikeln an die Verbundzentrale des GBV (VZG). HTML-Dokumentation: http://findex.gbv.de/articleformatdoc/schemas/article_schema.html*
+
+Type: `object`
+
+<i id="httpsuri.gbv.deschemaarticle01schema">path: #https://uri.gbv.de/schema/article/01/schema#</i>
+
+&#36;schema: [http://json-schema.org/draft-07/schema#](http://json-schema.org/draft-07/schema#)
+
+<b id="httpsuri.gbv.deschemaarticle01schema">&#36;id: https://uri.gbv.de/schema/article/01/schema#</b>
+
+***Properties***
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesprimary-id">primary_id</b> `required`
+	 - Type: `object`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesprimary-id">path: #https://uri.gbv.de/schema/article/01/schema#/properties/primary_id</i>
+	 - ***Properties***
+		 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesprimary-idpropertiesid">id</b> `required`
+			 - ##### Primäre ID
+			 - *primäre ID des Datensatzes in der Datenquelle*
+			 - Type: `string`
+			 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesprimary-idpropertiesid">path: #https://uri.gbv.de/schema/article/01/schema#/properties/primary_id/properties/id</i>
+			 - Length:  &ge; 1
+
+		 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesprimary-idpropertiestype">type</b> `required`
+			 - ##### Typ
+			 - *Typ der ID. Der Typ der ID sollte so gewählt werden, dass nachvollziehbar ist, woher die Datensätze stammen. Die Katalogiserungsrichtlinie schlägt in den 20XX- und 21XX-Feldern Kürzel für einige Datenlieferanten vor, die auch hier genutzt werden sollten: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=index&regelwerk=RDA&verbund=GBV#titel . Falls unkbekannt: unknown*
+			 - Type: `string`
+			 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesprimary-idpropertiestype">path: #https://uri.gbv.de/schema/article/01/schema#/properties/primary_id/properties/type</i>
+			 - Example values: 
+				 1. *"oai_id"*
+				 2. *"https://kxp.k10plus.de/DB=2.1/"*
+				 3. *"oclc"*
+			 - Length:  &ge; 1
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesother-ids">other_ids</b>
+	 - ### weitere IDs
+	 - *Weitere Identifier für den Artikel aus dem Quelldatensatz mit Angabe des Typs der ID, z.B. doi, urn, oai_id usw. (hier keine Identifier zu Zeitschriften, Personen usw.) Vergleiche http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=2113&regelwerk=RDA&verbund=GBV*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesother-ids">path: #https://uri.gbv.de/schema/article/01/schema#/properties/other_ids</i>
+		 - ***Items***
+		 - Type: `object`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesother-idsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/other_ids/items</i>
+		 - ***Properties***
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesother-idsitemspropertiesid">id</b> `required`
+				 - ##### ID
+				 - *Wert der ID*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesother-idsitemspropertiesid">path: #https://uri.gbv.de/schema/article/01/schema#/properties/other_ids/items/properties/id</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesother-idsitemspropertiestype">type</b> `required`
+				 - ##### Typ
+				 - *Typ der ID. Falls unkbekannt: unknown*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesother-idsitemspropertiestype">path: #https://uri.gbv.de/schema/article/01/schema#/properties/other_ids/items/properties/type</i>
+				 - Example values: 
+					 1. *"doi"*
+					 2. *"oclc"*
+					 3. *"urn"*
+					 4. *"oai_id"*
+				 - Length:  &ge; 1
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiescollection-ids">collection_ids</b>
+	 - ### IDs von Datensammlungen
+	 - *Datensätze können über diese IDs bestehenden Datensammlungen zugeordnet werden. Verwendung bitte je Projekt mit der Verbundzentrale (VZG) abklären. Beispiele: SSG-Nummer/FID-Kennzeichen, Produktsigel usw.*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiescollection-ids">path: #https://uri.gbv.de/schema/article/01/schema#/properties/collection_ids</i>
+		 - ***Items***
+		 - Type: `object`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiescollection-idsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/collection_ids/items</i>
+		 - ***Properties***
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiescollection-idsitemspropertiesid">id</b> `required`
+				 - ##### ID
+				 - *Wert der ID*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiescollection-idsitemspropertiesid">path: #https://uri.gbv.de/schema/article/01/schema#/properties/collection_ids/items/properties/id</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiescollection-idsitemspropertiestype">type</b> `required`
+				 - ##### Typ
+				 - *Typ der ID. Falls unkbekannt: unknown*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiescollection-idsitemspropertiestype">path: #https://uri.gbv.de/schema/article/01/schema#/properties/collection_ids/items/properties/type</i>
+				 - Example values: 
+					 1. *"sigel"*
+					 2. *"fid"*
+					 3. *"ssg"*
+				 - Length:  &ge; 1
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiestitle">title</b> `required`
+	 - ### Titel
+	 - *Der Haupttitel des Artikels*
+	 - Type: `string`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiestitle">path: #https://uri.gbv.de/schema/article/01/schema#/properties/title</i>
+	 - Length:  &ge; 1
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiessubtitle">subTitle</b>
+	 - ### Titel
+	 - *Eventuelle Ergänzung zum Haupttitel*
+	 - Type: `string`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubtitle">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subTitle</i>
+	 - Length:  &ge; 1
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesothertitles">otherTitles</b>
+	 - ### Weitere Titel
+	 - *Weitere Titelformen*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesothertitles">path: #https://uri.gbv.de/schema/article/01/schema#/properties/otherTitles</i>
+		 - ***Items***
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesothertitlesitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/otherTitles/items</i>
+		 - Length:  &ge; 1
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersons">persons</b>
+	 - ### Personen
+	 - *alle am Artikel beteiligten Personen in der Reihenfolge der Nennung im Artikel*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersons">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons</i>
+		 - ***Items***
+		 - Type: `object`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items</i>
+		 - ***Properties***
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesfullname">fullname</b> `required`
+				 - ##### Voller Name
+				 - *persönlicher Name, dieser wird auch verwendet, wenn eine Aufteilung in Nachname, Vorname nicht möglich ist. Verfassende Organisationen (Körperschaften) können bei Aufsätzen auch als „persönlicher Name“ angegeben werden*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesfullname">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/fullname</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesfirstname">firstname</b>
+				 - ##### Vorname
+				 - *Vorname*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesfirstname">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/firstname</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertieslastname">lastname</b>
+				 - ##### Nachname
+				 - *Nachname*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertieslastname">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/lastname</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesrole">role</b>
+				 - ##### role
+				 - *Rolle der Person in Bezug auf den Artikel als relator code nach https://opus.k10plus.de/frontdoor/deliver/index/docId/421/file/Liste_Beziehungskennzeichnungen_3010_3110.pdf*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesrole">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/role</i>
+				 - Example values: 
+					 1. *"aut"*
+					 2. *"edt"*
+					 3. *"ill"*
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliation">affiliation</b>
+				 - ##### Zugehörigkeit
+				 - *Zugehörigkeit einer Person zu einer Einrichtung (z.B. Universität, Firma, Forschungseinrichtung usw.)*
+				 - Type: `object`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliation">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/affiliation</i>
+				 - ***Properties***
+					 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesname">name</b>
+						 - ##### Name der Einrichtung
+						 - *Name der Einrichtung*
+						 - Type: `string`
+						 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesname">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/affiliation/properties/name</i>
+						 - Length:  &ge; 1
+
+					 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesaffiliation-ids">affiliation_ids</b>
+						 - ##### Identifier der Einrichtung
+						 - *Identifier, die die Einrichtung identifizieren*
+						 - Type: `array`
+						 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesaffiliation-ids">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/affiliation/properties/affiliation_ids</i>
+							 - ***Items***
+							 - Type: `object`
+							 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesaffiliation-idsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/affiliation/properties/affiliation_ids/items</i>
+							 - ***Properties***
+								 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesaffiliation-idsitemspropertiesid">id</b> `required`
+									 - ##### ID
+									 - *Wert der ID*
+									 - Type: `string`
+									 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesaffiliation-idsitemspropertiesid">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/affiliation/properties/affiliation_ids/items/properties/id</i>
+									 - Length:  &ge; 1
+
+								 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesaffiliation-idsitemspropertiestype">type</b> `required`
+									 - ##### type
+									 - *Typ der ID (z.B. gnd, viaf, ???). Falls unkbekannt: unknown*
+									 - Type: `string`
+									 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesaffiliationpropertiesaffiliation-idsitemspropertiestype">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/affiliation/properties/affiliation_ids/items/properties/type</i>
+									 - Example values: 
+										 1. *"gnd"*
+										 2. *"viaf"*
+									 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesperson-ids">person_ids</b>
+				 - ##### IDs der Person
+				 - *Identifier, die die Person identifizieren (z.B. GND, ORCID, ...)*
+				 - Type: `array`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesperson-ids">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/person_ids</i>
+					 - ***Items***
+					 - Type: `object`
+					 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesperson-idsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/person_ids/items</i>
+					 - ***Properties***
+						 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesperson-idsitemspropertiesid">id</b> `required`
+							 - ##### ID
+							 - *Wert der ID*
+							 - Type: `string`
+							 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesperson-idsitemspropertiesid">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/person_ids/items/properties/id</i>
+							 - Length:  &ge; 1
+
+						 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesperson-idsitemspropertiestype">type</b> `required`
+							 - ##### Typ
+							 - *Typ der ID (z.B. gnd, orcid, viaf, ...). Falls unkbekannt: unknown*
+							 - Type: `string`
+							 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiespersonsitemspropertiesperson-idsitemspropertiestype">path: #https://uri.gbv.de/schema/article/01/schema#/properties/persons/items/properties/person_ids/items/properties/type</i>
+							 - Example values: 
+								 1. *"orcid"*
+								 2. *"gnd"*
+							 - Length:  &ge; 1
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesjournal">journal</b> `required`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesjournal">path: #https://uri.gbv.de/schema/article/01/schema#/properties/journal</i>
+	 - &#36;ref: [#/definitions/journal](#/definitions/journal)
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesrelatedworks">relatedWorks</b>
+	 - ### Weitere Veröffentlichungen
+	 - *Hier können im gleichen Format zu 'journal' weitere Verknüpfungen untergebracht werden.*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesrelatedworks">path: #https://uri.gbv.de/schema/article/01/schema#/properties/relatedWorks</i>
+		 - ***Items***
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesrelatedworksitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/relatedWorks/items</i>
+		 - &#36;ref: [#/definitions/journal](#/definitions/journal)
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertieslang-code">lang_code</b> `required`
+	 - ### Sprache(n)
+	 - *Sprachcode(s) aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertieslang-code">path: #https://uri.gbv.de/schema/article/01/schema#/properties/lang_code</i>
+		 - ***Items***
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertieslang-codeitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/lang_code/items</i>
+		 - The value must match this pattern: `^[a-z]{3}$`
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesurls">urls</b>
+	 - ### URLs zum Artikel
+	 - *URLs zum Artikel mit Angabe zum 'Bezugswerk' in 'scope' sowie zu Benutzungsbedingungen in 'access_info'*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesurls">path: #https://uri.gbv.de/schema/article/01/schema#/properties/urls</i>
+		 - ***Items***
+		 - Type: `object`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/urls/items</i>
+		 - ***Properties***
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitemspropertiesurl">url</b> `required`
+				 - ##### URL
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitemspropertiesurl">path: #https://uri.gbv.de/schema/article/01/schema#/properties/urls/items/properties/url</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitemspropertiesscope">scope</b> `required`
+				 - ##### Bezugswerk
+				 - *Hier sollen insbesondere URLs zum Volltext des Artikels, aber auch alle anderen Arten von 'Linkzielen' nach Typ codiert werden mit ONIX-Codes gemäß Katalogisierungsrichtlinie für PICA3-Feld 4085 $3: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$3*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitemspropertiesscope">path: #https://uri.gbv.de/schema/article/01/schema#/properties/urls/items/properties/scope</i>
+				 - The value must match this pattern: `^$|^[0-9][0-9]$`
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitemspropertiesaccess-info">access_info</b> `required`
+				 - ##### Codierte Zugangsbedingungen
+				 - *Hier werden Zugangsbedingungen (z.B. Open Access) codiert gemäß Katalogisierungsrichtlinie für PICA3 4085 $4: http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=4085&regelwerk=RDA&verbund=GBV#$4*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitemspropertiesaccess-info">path: #https://uri.gbv.de/schema/article/01/schema#/properties/urls/items/properties/access_info</i>
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitemspropertiesremarks">remarks</b>
+				 - ##### Allgemeine Bemerkung
+				 - *Bemerkungen zur URL als Text, die in PICA3-Feld 4950 $z abgelegt werden*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesurlsitemspropertiesremarks">path: #https://uri.gbv.de/schema/article/01/schema#/properties/urls/items/properties/remarks</i>
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesabstracts">abstracts</b>
+	 - ### Abstracts, Zusammenfassungen usw.
+	 - *Text mit Angabe der Sprache als Sprachcode aus ISO 639-2*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesabstracts">path: #https://uri.gbv.de/schema/article/01/schema#/properties/abstracts</i>
+		 - ***Items***
+		 - Type: `object`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesabstractsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/abstracts/items</i>
+		 - ***Properties***
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesabstractsitemspropertiestext">text</b> `required`
+				 - ##### Text des Abstracts
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesabstractsitemspropertiestext">path: #https://uri.gbv.de/schema/article/01/schema#/properties/abstracts/items/properties/text</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesabstractsitemspropertieslang-code">lang_code</b>
+				 - ##### Sprachcode
+				 - *Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesabstractsitemspropertieslang-code">path: #https://uri.gbv.de/schema/article/01/schema#/properties/abstracts/items/properties/lang_code</i>
+				 - The value must match this pattern: `^[a-z]{3}$`
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-terms">subject_terms</b>
+	 - ### Sacherschließung
+	 - *Mit Angabe des Sacherschließungssystems und der Sprache als Sprachcode aus ISO 639-2*
+	 - Type: `array`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-terms">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subject_terms</i>
+		 - ***Items***
+		 - Type: `object`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subject_terms/items</i>
+		 - ***Properties***
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiesterms">terms</b> `required`
+				 - ##### Sacherschließungsterme
+				 - *Sacherschließungsterme als Array. Entweder jeder Term als eigenes String-Feld; oder als Objekt bestehend aus einer Bezeichnung und einer ID oder Notation (z.B. GND-ID)*
+				 - Type: `array`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiesterms">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subject_terms/items/properties/terms</i>
+					 - ***Items***
+					 - Types: `string`, `object`
+					 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiestermsitems">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subject_terms/items/properties/terms/items</i>
+					 - Length:  &ge; 1
+
+					 - Property Count:  &ge; 1
+
+					 - ***Properties***
+						 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiestermsitemspropertiesterm">term</b>
+							 - ##### Term/Bezeichnung
+							 - Type: `string`
+							 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiestermsitemspropertiesterm">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subject_terms/items/properties/terms/items/properties/term</i>
+							 - Length:  &ge; 1
+
+						 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiestermsitemspropertiesid">id</b>
+							 - ##### Identifikator/Notation innerhalb des Sacherschließungssystems
+							 - Type: `string`
+							 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiestermsitemspropertiesid">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subject_terms/items/properties/terms/items/properties/id</i>
+							 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiesscheme">scheme</b> `required`
+				 - ##### Sacherschließungssystem
+				 - *Bezeichnung des Sacherschließungssystems*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertiesscheme">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subject_terms/items/properties/scheme</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertieslang-code">lang_code</b>
+				 - ##### Sprachcode
+				 - *Sprachcode aus ISO 639-2. Zur Verwendung siehe http://swbtools.bsz-bw.de/cgi-bin/help.pl?cmd=kat&val=1500&regelwerk=RDA&verbund=GBV*
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiessubject-termsitemspropertieslang-code">path: #https://uri.gbv.de/schema/article/01/schema#/properties/subject_terms/items/properties/lang_code</i>
+				 - The value must match this pattern: `^[a-z]{3}$`
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiescopyright">copyright</b>
+	 - ### Copyrightvermerk
+	 - Type: `string`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiescopyright">path: #https://uri.gbv.de/schema/article/01/schema#/properties/copyright</i>
+	 - Length:  &ge; 1
+
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesdateofproduction">dateOfProduction</b>
+	 - ### Herstellungsdatum
+	 - *Herstellungsdatum (z.B. Datum der Digitalisierung). Das Datum kann als vierstelliges Jahr (YYYY), Jahr und Monat (YYYY-MM) oder Jahr, Monat und Tag (YYYY-MM-DD) angegeben werden. s.a. PICA 1108 $p: https://swbtools.bsz-bw.de/cgi-bin/k10plushelp.pl?cmd=kat&val=1108&katalog=Standard*
+	 - Type: `string`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesdateofproduction">path: #https://uri.gbv.de/schema/article/01/schema#/properties/dateOfProduction</i>
+	 - The value must match this pattern: `^[0-9]{4}(-[0-9]{2}){0,2}$`
+ - <b id="httpsuri.gbv.deschemaarticle01schemapropertiesadditional-data">additional_data</b>
+	 - ### Sonst noch was?
+	 - *In den key 'additional_data' kann ein JSON-Objekt mit weiteren Daten geschrieben werden. Dieses Objekt muss mit einem JSON-Schema spezifiziert sein und es sollte ein Mapping des Objekts auf Picaplus-Felder mitgeliefert werden.*
+	 - Type: `object`
+	 - <i id="httpsuri.gbv.deschemaarticle01schemapropertiesadditional-data">path: #https://uri.gbv.de/schema/article/01/schema#/properties/additional_data</i>
+	 - ***Properties***
+# definitions
+
+***journal***
+
+ - ## Zeitschrift
+ - *Quellenangabe*
+ - Type: `object`
+ - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournal">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal</i>
+ - ***Properties***
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiestitle">title</b> `required`
+		 - #### Titel
+		 - *Titel der Zeitschrift*
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiestitle">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/title</i>
+		 - Length:  &ge; 1
+
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesjournal-ids">journal_ids</b>
+		 - #### IDs der Zeitschrift
+		 - *Identifier der Zeitschrift, z.B. E-ISSN, P-ISSN, ZDB-ID, publisher -ID usw.*
+		 - Type: `array`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesjournal-ids">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/journal_ids</i>
+			 - ***Items***
+			 - Type: `object`
+			 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesjournal-idsitems">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/journal_ids/items</i>
+			 - ***Properties***
+				 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesjournal-idsitemspropertiesid">id</b> `required`
+					 - ##### ID
+					 - *Wert der ID*
+					 - Type: `string`
+					 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesjournal-idsitemspropertiesid">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/journal_ids/items/properties/id</i>
+					 - Length:  &ge; 1
+
+				 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesjournal-idsitemspropertiestype">type</b> `required`
+					 - ##### Typ
+					 - *Typ der ID, z.B. CODEN, eissn, pissn, zdbid, springerid usw. Falls unkbekannt: unknown*
+					 - Type: `string`
+					 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesjournal-idsitemspropertiestype">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/journal_ids/items/properties/type</i>
+					 - Example values: 
+						 1. *"coden"*
+						 2. *"eissn"*
+						 3. *"pissn"*
+						 4. *"zdbid"*
+					 - Length:  &ge; 1
+
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesyear">year</b> `required`
+		 - #### Erscheinungsjahr
+		 - *Erscheinungsjahr als vierstellige Zahl*
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesyear">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/year</i>
+		 - The value must match this pattern: `^[0-9]{4}$`
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesmonth">month</b>
+		 - #### Monat
+		 - *Monat des Erscheinens als zweistellige Zahl*
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesmonth">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/month</i>
+		 - The value must match this pattern: `^[0-9]{2}$`
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesday">day</b>
+		 - #### Tag
+		 - *Tag des Erscheinens als zweistellige Zahl*
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesday">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/day</i>
+		 - The value must match this pattern: `^[0-9]{2}$`
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesvolume">volume</b>
+		 - #### Band
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesvolume">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/volume</i>
+		 - Length:  &ge; 1
+
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesissue">issue</b>
+		 - #### Ausgabe
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesissue">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/issue</i>
+		 - Length:  &ge; 1
+
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisher">publisher</b>
+		 - #### Verlag
+		 - *Angaben zum Verlag, falls bekannt mit einem Identifier des Verlages (z.B. GND)*
+		 - Type: `object`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisher">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/publisher</i>
+		 - ***Properties***
+			 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiesname">name</b>
+				 - ##### Name des Verlages
+				 - Type: `string`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiesname">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/publisher/properties/name</i>
+				 - Length:  &ge; 1
+
+			 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiespublisher-ids">publisher_ids</b>
+				 - Type: `array`
+				 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiespublisher-ids">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/publisher/properties/publisher_ids</i>
+					 - ***Items***
+					 - Type: `object`
+					 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiespublisher-idsitems">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/publisher/properties/publisher_ids/items</i>
+					 - ***Properties***
+						 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiespublisher-idsitemspropertiesid">id</b> `required`
+							 - ##### ID
+							 - *Wert der ID*
+							 - Type: `string`
+							 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiespublisher-idsitemspropertiesid">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/publisher/properties/publisher_ids/items/properties/id</i>
+							 - Length:  &ge; 1
+
+						 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiespublisher-idsitemspropertiestype">type</b> `required`
+							 - ##### Typ
+							 - *Typ der ID, z.B. gnd. Falls unkbekannt: unknown*
+							 - Type: `string`
+							 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiespublisherpropertiespublisher-idsitemspropertiestype">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/publisher/properties/publisher_ids/items/properties/type</i>
+							 - Example values: 
+								 1. *"gnd"*
+							 - Length:  &ge; 1
+
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesplace">place</b>
+		 - #### Erscheinungsort
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesplace">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/place</i>
+		 - Length:  &ge; 1
+
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesstart-page">start_page</b>
+		 - #### Anfangsseite
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesstart-page">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/start_page</i>
+		 - Length:  &ge; 1
+
+	 - <b id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesend-page">end_page</b>
+		 - #### Endseite
+		 - Type: `string`
+		 - <i id="httpsuri.gbv.deschemaarticle01schemadefinitionsjournalpropertiesend-page">path: #https://uri.gbv.de/schema/article/01/schema#/definitions/journal/properties/end_page</i>
+		 - Length:  &ge; 1
+
+
+*Generated with [json-schema-md-doc](https://brianwendt.github.io/json-schema-md-doc/)*
+*Fri Nov 14 2025 17:52:46 GMT+0100 (Mitteleuropäische Normalzeit)*
